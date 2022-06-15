@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Cores personalizadas -->
+    <color name="vermelho_crimson_principal">#f44336</color>
+    <color name="vermelho_crimson_secundario">#c62828</color>
+    <color name="amarelo_barra_notificacoes_primario">#ffee58</color>
+    <color name="amarelo_barra_notificacoes_secundario">#ffc107</color>
+    <color name="silver_edit_text_layout">#C0C0C0</color>
 </resources>

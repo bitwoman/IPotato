@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">IPotato</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <!-- String's da página de Login -->
+    <string name="nome_aplicativo">IPotato</string>
+    <string name="content_description_icone_principal"> ImageView do icone principal da página de login </string>
+    <string name="hint_edittext_nome_usuario">Nome de Usuário</string>
+    <string name="hint_edittext_senha_usuario">Senha</string>
+    <string name="button_login">Login</string>
+
 </resources>

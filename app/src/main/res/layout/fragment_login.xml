@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/idButtonLogin"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/button_login"
+            android:backgroundTint="@color/vermelho_crimson_secundario"
+            android:padding="10dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idEditTextSenhaUsuario" />
+
+        <ImageView
+            android:id="@+id/idImageViewIconePrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:contentDescription="@string/content_description_icone_principal"
+            android:src="@drawable/iconbatatafrita"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/idTvNomeAplicativo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="5"
+            android:shadowRadius="4"
+            android:text="@string/nome_aplicativo"
+            android:textColor="@color/vermelho_crimson_principal"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idImageViewIconePrincipal" />
+
+        <EditText
+            android:id="@+id/idEditTextNomeUsuario"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/edit_text_layout"
+            android:ems="10"
+            android:hint="@string/hint_edittext_nome_usuario"
+            android:inputType="textPersonName"
+            android:padding="10dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTvNomeAplicativo"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/idEditTextSenhaUsuario"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_layout"
+            android:ems="10"
+            android:hint="@string/hint_edittext_senha_usuario"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:padding="10dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeUsuario"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</FrameLayout>
