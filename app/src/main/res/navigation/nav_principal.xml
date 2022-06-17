@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_login_to_cadastroUsuario"
             app:destination="@id/cadastroUsuario" />
+        <action
+            android:id="@+id/action_login_to_iniciarPedido2"
+            app:destination="@id/iniciarPedido2" />
     </fragment>
     <fragment
         android:id="@+id/cadastroUsuario"
         android:name="com.example.ipotato.CadastroUsuario"
         android:label="fragment_cadastro_usuario"
         tools:layout="@layout/fragment_cadastro_usuario" />
+    <fragment
+        android:id="@+id/iniciarPedido2"
+        android:name="com.example.ipotato.IniciarPedido"
+        android:label="fragment_iniciar_pedido"
+        tools:layout="@layout/fragment_iniciar_pedido" />
 </navigation>

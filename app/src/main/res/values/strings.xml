@@ -25,4 +25,13 @@
     <string name="text_view_ano_desenvolvimento">© 2022</string>
 
 
+    <!-- String's da página de iniciar pedido -->
+    <string name="textview_bem_vindo_page_iniciar_pedido">Bem vindo,</string>
+    <string name="textview_promocao_page_iniciar_pedido">EM PROMOÇÃO:</string>
+    <string name="imageview_contentdescription_iconeanuncio">Image View do Icone de Anúncio</string>
+    <string name="imageview_contentdescription_iconesale">Image View do Icone de Sale</string>
+    <string name="imageview_contentdescription_iconepromocao">Image View do Icone de Promoção</string>
+    <string name="button_iniciar_pegido_page_iniciar_pedido">Iniciar Pedido</string>
+
+
 </resources>

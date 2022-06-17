@@ -62,6 +62,7 @@ public class Login extends Fragment implements View.OnClickListener{
 
         switch (view.getId()){
             case R.id.idButtonLogin:
+                navController.navigate(R.id.action_login_to_iniciarPedido2);
                 break;
 
             case R.id.idButtonRegistrar:

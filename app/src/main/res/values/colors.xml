@@ -42,6 +42,22 @@
     <color name="vermelho_botão_registrar_page_registrar_usuario">#c62828</color>
 
 
+    <!-- PÁGINA DE INICIAR PEDIDOS -->
+    <!-- Cor da caixa de promoção - Página de Iniciar Pedidos -->
+    <color name="silver_layout_box_promocao">#C0C0C0</color>
+
+    <!-- Cor do botão de iniciar pedido - Página de Iniciar Pedido -->
+    <color name="vermelho_botão_iniciar_pedido">#c62828</color>
+
+    <!-- Cor do textview de promoção - Página de Iniciar Pedidos -->
+    <color name="vermelho_textview_em_promocao">#f44336</color>
+
+    <!-- Cor do textview de promoção - Página de Iniciar Pedidos -->
+    <color name="vermelho_textview_bem_vindo">#f44336</color>
+
+
+
+
 
 
     <color name="vermelho_crimson_principal">#f44336</color>
