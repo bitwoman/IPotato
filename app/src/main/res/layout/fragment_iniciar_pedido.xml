@@ -52,15 +52,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
-            android:text="@string/textview_promocao_page_iniciar_pedido"
-            android:textColor="@color/vermelho_textview_em_promocao"
             android:shadowColor="@color/black"
             android:shadowDx="2"
             android:shadowDy="5"
             android:shadowRadius="4"
+            android:text="@string/textview_promocao_page_iniciar_pedido"
+            android:textColor="@color/vermelho_textview_em_promocao"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idTextViewNomeUsuarioLogado" />
 
@@ -71,7 +72,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/layout_box_promocao"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idTextViewPromocao">
 
@@ -121,7 +122,7 @@
             android:text="@string/button_iniciar_pegido_page_iniciar_pedido"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.606"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
