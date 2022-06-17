@@ -11,11 +11,16 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class Login extends Fragment {
+public class Login extends Fragment implements View.OnClickListener{
 
     //Atributos
     NavController navController;
+    Button buttonLogin, buttonRegistrar;
+    TextView buttonPopularBanco;
 
     //construtor
     public Login() {
@@ -41,5 +46,30 @@ public class Login extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
+
+        buttonLogin = view.findViewById(R.id.idButtonLogin);
+        buttonLogin.setOnClickListener(this);
+
+        buttonRegistrar = view.findViewById(R.id.idButtonRegistrar);
+        buttonRegistrar.setOnClickListener(this);
+
+        buttonPopularBanco = view.findViewById(R.id.idButtonPopularBanco);
+        buttonPopularBanco.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.idButtonLogin:
+                break;
+
+            case R.id.idButtonRegistrar:
+                navController.navigate(R.id.action_login_to_cadastroUsuario);
+                break;
+
+            case R.id.idButtonPopularBanco:
+                break;
+        }
     }
 }

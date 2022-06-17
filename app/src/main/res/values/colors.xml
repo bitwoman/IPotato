@@ -9,9 +9,43 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Cores personalizadas -->
+
+    <!-- PÁGINA DE LOGIN -->
+
+    <!-- Cor do textview do título do aplicativo - Página de Login -->
+    <color name="vermelho_titulo_app_page_login">#f44336</color>
+
+    <!-- Cor do textview do botão popular db - Página de Login -->
+    <color name="vermelho_textview_button_popular_db">#f44336</color>
+
+    <!-- Cor do botão de login - Página de Login-->
+    <color name="vermelho_botão_login">#c62828</color>
+
+    <!-- Cor do botão de registrar - Página de Login-->
+    <color name="vermelho_botao_registrar">#c62828</color>
+
+    <!--Cor da barra de notificações do celular (acima do aplicativo) -->
+    <color name="amarelo_barra_notificacoes_celular">#ffc107</color>
+
+    <!-- Cor dos edit's text's - Página de Login -->
+    <color name="silver_edit_text_layout">#C0C0C0</color>
+
+
+    <!-- PÁGINA DE REGISTRO DE USUÁRIOS -->
+    <!-- Cor do textview do título do aplicativo - Página de Registro de Usuários -->
+    <color name="vermelho_titulo_app_page_registrar_usuario">#f44336</color>
+
+    <!-- Cor do textview da label novo usuário- Página de Registro de Usuários -->
+    <color name="vermelho_da_label_nu_page_registrar_usuario">#f44336</color>
+
+    <!-- Cor do botão de registrar - Página de Registro de Usuário -->
+    <color name="vermelho_botão_registrar_page_registrar_usuario">#c62828</color>
+
+
+
+
     <color name="vermelho_crimson_principal">#f44336</color>
     <color name="vermelho_crimson_secundario">#c62828</color>
     <color name="amarelo_barra_notificacoes_primario">#ffee58</color>
-    <color name="amarelo_barra_notificacoes_secundario">#ffc107</color>
-    <color name="silver_edit_text_layout">#C0C0C0</color>
+
 </resources>

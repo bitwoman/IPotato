@@ -10,19 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/idButtonLogin"
-            android:layout_width="280dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/button_login"
-            android:backgroundTint="@color/vermelho_crimson_secundario"
-            android:padding="10dip"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idEditTextSenhaUsuario" />
-
         <ImageView
             android:id="@+id/idImageViewIconePrincipal"
             android:layout_width="wrap_content"
@@ -43,8 +30,8 @@
             android:shadowDx="2"
             android:shadowDy="5"
             android:shadowRadius="4"
-            android:text="@string/nome_aplicativo"
-            android:textColor="@color/vermelho_crimson_principal"
+            android:text="@string/textview_nome_aplicativo_page_login"
+            android:textColor="@color/vermelho_titulo_app_page_login"
             android:textSize="35sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +73,59 @@
             app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeUsuario"
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
+        <Button
+            android:id="@+id/idButtonLogin"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/button_login"
+            android:backgroundTint="@color/vermelho_botão_login"
+            android:padding="10dip"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idEditTextSenhaUsuario" />
+
+        <Button
+            android:id="@+id/idButtonRegistrar"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:text="@string/button_registrar"
+            android:textStyle="bold"
+            android:backgroundTint="@color/vermelho_botao_registrar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idButtonLogin" />
+
+        <TextView
+            android:id="@+id/idButtonPopularBanco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_popular_bd"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/vermelho_textview_button_popular_db"
+            app:layout_constraintBottom_toTopOf="@+id/idTextViewAnoDesenvolvimento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idButtonRegistrar"
+            app:layout_constraintVertical_bias="0.93" />
+
+        <TextView
+            android:id="@+id/idTextViewAnoDesenvolvimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/text_view_ano_desenvolvimento"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 </FrameLayout>

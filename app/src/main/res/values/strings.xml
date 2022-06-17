@@ -3,13 +3,26 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-
-
     <!-- String's da página de Login -->
-    <string name="nome_aplicativo">IPotato</string>
+    <string name="textview_nome_aplicativo_page_login">IPotato</string>
     <string name="content_description_icone_principal"> ImageView do icone principal da página de login </string>
     <string name="hint_edittext_nome_usuario">Nome de Usuário</string>
     <string name="hint_edittext_senha_usuario">Senha</string>
     <string name="button_login">Login</string>
+    <string name="button_registrar">Registrar-se</string>
+    <string name="button_popular_bd">Popular BD</string>
+
+
+    <!-- String's da página de registro de usuário -->
+    <string name="textview_nome_aplicativo_page_registrar">IPotato</string>
+    <string name="textview_novo_usuario_page_registrar">Novo Usuário</string>
+    <string name="hint_edittext_nome_completo_page_registrar">Nome Completo</string>
+    <string name="hint_edittext_email_page_registrar">E-mail</string>
+    <string name="hint_edittext_nome_usuario_page_registrar">Nome de Usuário</string>
+    <string name="hint_edittext_senha_page_registrar">Senha</string>
+    <string name="hint_edittext_confirmar_senha_page_registrar">Confirmar Senha</string>
+    <string name="button_registrar_page_registrar">Registrar</string>
+    <string name="text_view_ano_desenvolvimento">© 2022</string>
+
 
 </resources>

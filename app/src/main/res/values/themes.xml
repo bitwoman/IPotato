@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <!--<item name="colorPrimary">@color/vermelho_crimson_principal_titulo</item>-->
         <!--<item name="colorPrimaryVariant">@color/purple_700</item>-->
-        <item name="colorPrimaryVariant">@color/amarelo_barra_notificacoes_secundario</item>
+        <item name="colorPrimaryVariant">@color/amarelo_barra_notificacoes_celular</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
