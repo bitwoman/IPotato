@@ -21,7 +21,11 @@
         android:id="@+id/cadastroUsuario"
         android:name="com.example.ipotato.CadastroUsuario"
         android:label="fragment_cadastro_usuario"
-        tools:layout="@layout/fragment_cadastro_usuario" />
+        tools:layout="@layout/fragment_cadastro_usuario" >
+        <action
+            android:id="@+id/action_cadastroUsuario_to_iniciarPedido3"
+            app:destination="@id/iniciarPedido3" />
+    </fragment>
     <fragment
         android:id="@+id/iniciarPedido3"
         android:name="com.example.ipotato.IniciarPedido"

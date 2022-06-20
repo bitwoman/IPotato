@@ -12,6 +12,9 @@
 
     <!-- PÁGINA DE LOGIN -->
 
+    <!-- Cor do Hint da verificação do EditText -->
+    <color name="vermelho_hint_edittext_verificacao">#c62828</color>
+
     <!-- Cor do textview do título do aplicativo - Página de Login -->
     <color name="vermelho_titulo_app_page_login">#f44336</color>
 
