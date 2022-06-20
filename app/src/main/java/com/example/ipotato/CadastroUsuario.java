@@ -62,15 +62,9 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if(editTextNomeCompleto.getText().toString().isEmpty()){
-
-            /*
-            || editTextEmail.getText().toString().isEmpty() ||
+        if(editTextNomeCompleto.getText().toString().isEmpty() || editTextEmail.getText().toString().isEmpty() ||
            editTextNomeDeUsuario.getText().toString().isEmpty() || editTextSenha.getText().toString().isEmpty() ||
            editTextConfirmarSenha.getText().toString().isEmpty()){
-
-
-             */
 
             editTextNomeCompleto.setHint("Campo obrigatório!");
             editTextNomeCompleto.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
@@ -90,46 +84,44 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
             String nome = editTextNomeCompleto.getText().toString().trim();
 
             Pattern validacaoNome = Pattern.compile("[A-Za-z_ ]+");
-
-//            Pattern validacaoNome = Pattern.compile("\p{IsAlphabetic}");
             Matcher matchNome = validacaoNome.matcher(nome);
             boolean respostaValicaoNome = matchNome.matches();
-            String c =  String.valueOf(respostaValicaoNome);
 
             Pattern patternEmail = Patterns.EMAIL_ADDRESS;
-
             boolean validacaoEmail = patternEmail.matcher(editTextEmail.getText().toString().trim()).matches();
 
-            Log.i("TESTE1", nome);
+            String senha = editTextSenha.getText().toString().trim();
+            String senhaConfirmada = editTextConfirmarSenha.getText().toString().trim();
 
+            Pattern validacaoSenha = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$");
+            Matcher matchSenha = validacaoSenha.matcher(senha);
+            boolean respostaValicaoSenha = matchSenha.matches();
+
+            Pattern validacaoSenhaConfirmada = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$");
+            Matcher matchSenhaConfirmada = validacaoSenhaConfirmada.matcher(senhaConfirmada);
+            boolean respostaValicaoSenhaConfirmada = matchSenhaConfirmada.matches();
+            
             if(respostaValicaoNome == true){
-                Log.i("TESTE1",nome + " PÓS IF DE NOME, DEU CERTO");
-            }else{
-                Log.i("TESTE1",nome + " não DEU CERTO");
-            }
-//                (?=.*[@#$%^&+=])(?=\S+$]) [A-Z-a-z-0-9][@ # $% ^ & + =]*
-
-                /*if(validacaoEmail == true){
-                    Log.i("TESTE1",nome + " PÓS IF DE EMAIL");
-                    String senha = editTextSenha.getText().toString().trim();
-                    String senhaConfirmada = editTextConfirmarSenha.getText().toString().trim();
-
-                    if(senha.matches("[@#$%^&+=][\\S+$][0-9][A-Z-a-z]{8,}")){
-                        if(senhaConfirmada.matches("[@#$%^&+=][\\S+$][0-9][A-Z-a-z]{8,}")){
+                if(validacaoEmail == true){
+                    if(respostaValicaoSenha == true){
+                        if(respostaValicaoSenhaConfirmada == true){
                             if (senha.equals(senhaConfirmada)){
                                 navController.navigate(R.id.action_cadastroUsuario_to_iniciarPedido3);
                             }else{
-                                Toast.makeText(getContext(), "As senhas são diferentes", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "As senhas são diferentes!", Toast.LENGTH_SHORT).show();
                             }
+                        }else{
+                            Toast.makeText(getContext(), "Senha fora de padrão!", Toast.LENGTH_SHORT).show();
                         }
+                    } else{
+                        Toast.makeText(getContext(), "Senha fora de padrão!", Toast.LENGTH_SHORT).show();
                     }
                 } else{
-                    Toast.makeText(getContext(), "FORMATO DE EMAIL INCORRETO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "E-MAIL INCORRETO!", Toast.LENGTH_SHORT).show();
                 }
-            //}//else{
-               // Toast.makeText(getContext(), "Nome contém apenas letras", Toast.LENGTH_SHORT).show();
-                //og.i("TESTE1",nome + " APÓS ELSE");
-            //}*/
+            }else{
+                Toast.makeText(getContext(), "Nome fora do padrão!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
