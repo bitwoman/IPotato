@@ -62,9 +62,13 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        /*if(editTextNomeCompleto.getText().toString().isEmpty() || editTextEmail.getText().toString().isEmpty() ||
-           editTextNomeDeUsuario.getText().toString().isEmpty() || editTextSenha.getText().toString().isEmpty() ||
-           editTextConfirmarSenha.getText().toString().isEmpty()){
+        validarCampos();
+    }
+
+    public void validarCampos(){
+        if(editTextNomeCompleto.getText().toString().isEmpty() || editTextEmail.getText().toString().isEmpty() ||
+                editTextNomeDeUsuario.getText().toString().isEmpty() || editTextSenha.getText().toString().isEmpty() ||
+                editTextConfirmarSenha.getText().toString().isEmpty()){
 
             editTextNomeCompleto.setHint("Campo obrigatório!");
             editTextNomeCompleto.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
@@ -93,14 +97,36 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
             String senha = editTextSenha.getText().toString().trim();
             String senhaConfirmada = editTextConfirmarSenha.getText().toString().trim();
 
-//            Pattern validacaoSenha = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$");
-//            Matcher matchSenha = validacaoSenha.matcher(senha);
-//            boolean respostaValicaoSenha = matchSenha.matches();
+            Pattern validacaoSenha = Pattern.compile("^" +
+                                                    "(?=.*[0-9])" +         //at least 1 digit
+                                                    "(?=.*[a-z])" +         //at least 1 lower case letter
+                                                    "(?=.*[A-Z])" +         //at least 1 upper case letter
+                                                    "(?=.*[a-zA-Z])" +      //any letter
+                                                    "(?=.*[@#$%^!&+=])" +    //at least 1 special character
+                                                    "(?=\\S+$)" +           //no white spaces
+                                                    ".{4,}" +               //at least 8 characters
+                                                    "(?=.*[@#!$%^&+=])" +    //at least 1 special character
+                                                    "(?=\\S+$)" +           //no white spaces
+                                                    ".{8,}" +               //at least 8 characters
+                                                    "$");
+            Matcher matchSenha = validacaoSenha.matcher(senha);
+            boolean respostaValicaoSenha = matchSenha.matches();
 
-//            Pattern validacaoSenhaConfirmada = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$");
-//            Matcher matchSenhaConfirmada = validacaoSenhaConfirmada.matcher(senhaConfirmada);
-//            boolean respostaValicaoSenhaConfirmada = matchSenhaConfirmada.matches();
-            
+            Pattern validacaoSenhaConfirmada =Pattern.compile("^" +
+                                                              "(?=.*[0-9])" +         //at least 1 digit
+                                                              "(?=.*[a-z])" +         //at least 1 lower case letter
+                                                              "(?=.*[A-Z])" +         //at least 1 upper case letter
+                                                              "(?=.*[a-zA-Z])" +      //any letter
+                                                              "(?=.*[@#$%^!&+=])" +    //at least 1 special character
+                                                              "(?=\\S+$)" +           //no white spaces
+                                                              ".{4,}" +               //at least 8 characters
+                                                              "(?=.*[@#!$%^&+=])" +    //at least 1 special character
+                                                              "(?=\\S+$)" +           //no white spaces
+                                                              ".{8,}" +               //at least 8 characters
+                                                              "$");
+            Matcher matchSenhaConfirmada = validacaoSenhaConfirmada.matcher(senhaConfirmada);
+            boolean respostaValicaoSenhaConfirmada = matchSenhaConfirmada.matches();
+
             if(respostaValicaoNome == true){
                 if(validacaoEmail == true){
                     if(respostaValicaoSenha == true){
@@ -122,6 +148,6 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
             }else{
                 Toast.makeText(getContext(), "Nome fora do padrão!", Toast.LENGTH_SHORT).show();
             }
-        }*/
+        }
     }
 }
