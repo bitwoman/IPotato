@@ -87,8 +87,11 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
         } else {
             String nome = editTextNomeCompleto.getText().toString().trim();
 
-            Pattern validacaoNome = Pattern.compile("[A-Za-z_ ]+");
+
+            //[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s] A-Za-z_
+            Pattern validacaoNome = Pattern.compile("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\\s]+");
             Matcher matchNome = validacaoNome.matcher(nome);
+
             boolean respostaValicaoNome = matchNome.matches();
 
             Pattern patternEmail = Patterns.EMAIL_ADDRESS;
@@ -104,9 +107,6 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
                                                     "(?=.*[a-zA-Z])" +      //any letter
                                                     "(?=.*[@#$%^!&+=])" +    //at least 1 special character
                                                     "(?=\\S+$)" +           //no white spaces
-                                                    ".{4,}" +               //at least 8 characters
-                                                    "(?=.*[@#!$%^&+=])" +    //at least 1 special character
-                                                    "(?=\\S+$)" +           //no white spaces
                                                     ".{8,}" +               //at least 8 characters
                                                     "$");
             Matcher matchSenha = validacaoSenha.matcher(senha);
@@ -118,9 +118,6 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
                                                               "(?=.*[A-Z])" +         //at least 1 upper case letter
                                                               "(?=.*[a-zA-Z])" +      //any letter
                                                               "(?=.*[@#$%^!&+=])" +    //at least 1 special character
-                                                              "(?=\\S+$)" +           //no white spaces
-                                                              ".{4,}" +               //at least 8 characters
-                                                              "(?=.*[@#!$%^&+=])" +    //at least 1 special character
                                                               "(?=\\S+$)" +           //no white spaces
                                                               ".{8,}" +               //at least 8 characters
                                                               "$");
