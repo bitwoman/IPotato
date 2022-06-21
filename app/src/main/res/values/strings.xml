@@ -12,6 +12,9 @@
     <string name="button_registrar">Registrar-se</string>
     <string name="button_popular_bd">Popular BD</string>
 
+    <!-- Strings do NavigationDrawer -->
+    <string name="open">Abre a navegação</string>
+    <string name="close">Fecha a navegação</string>
 
     <!-- String's da página de registro de usuário -->
     <string name="textview_nome_aplicativo_page_registrar">IPotato</string>
