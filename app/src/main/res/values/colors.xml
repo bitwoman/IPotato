@@ -59,6 +59,8 @@
     <color name="vermelho_textview_bem_vindo">#f44336</color>
 
 
+    <!-- PÁGINA DE CARDÁPIO -->
+    <color name="amarelo_botao_adicionar_qtde_item">#ffc107</color>
 
 
 
