@@ -14,15 +14,17 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class IniciarPedido extends Fragment {
+public class IniciarPedido extends Fragment implements View.OnClickListener {
 
     //Atributos
     NavController navController;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    Button buttonIniciarPedido;
 
     //Construtor
     public IniciarPedido() {
@@ -49,6 +51,9 @@ public class IniciarPedido extends Fragment {
         drawerLayout = view.findViewById(R.id.drawer_layout);
         navigationView = view.findViewById(R.id.nav_drawer);
 
+        buttonIniciarPedido = view.findViewById(R.id.idButtonIniciarPedido);
+        buttonIniciarPedido.setOnClickListener(this);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 getParentFragment().getActivity(),
                 drawerLayout,
@@ -60,4 +65,8 @@ public class IniciarPedido extends Fragment {
 
     }
 
+    @Override
+    public void onClick(View view) {
+        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
+    }
 }

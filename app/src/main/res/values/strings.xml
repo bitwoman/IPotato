@@ -37,4 +37,12 @@
     <string name="button_iniciar_pegido_page_iniciar_pedido">Iniciar Pedido</string>
 
 
+    <!-- String's da página de Cardápio -->
+    <string name="button_adicionar_qtde_item">+</string>
+
+
+
+
+    <!-- String's da action bar-->
+    <string name="action_bar_button_carrinho">Botão do carrinho da action bar</string>
 </resources>
