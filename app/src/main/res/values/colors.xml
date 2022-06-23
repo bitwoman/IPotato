@@ -63,6 +63,8 @@
     <color name="amarelo_botao_adicionar_qtde_item">#ffc107</color>
 
 
+    <!-- PÁGINA DO NAVDRAWER -->
+    <color name="amarelo_txtview_nome_navdrawer">#ffc107</color>
 
 
     <color name="vermelho_crimson_principal">#f44336</color>
