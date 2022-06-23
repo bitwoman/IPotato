@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.ipotato.dao.PedidoDAO;
 import com.example.ipotato.dao.ProdutoDAO;
+import com.example.ipotato.dao.UsuarioDAO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,5 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
         PedidoDAO peDAO = new PedidoDAO(this);
         peDAO.popularBD();
+
+        UsuarioDAO uDao = new UsuarioDAO(this);
+        uDao.popularTabela();
+
     }
+
+
 }
