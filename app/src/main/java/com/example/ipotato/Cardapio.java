@@ -21,7 +21,6 @@ public class Cardapio extends Fragment {
 
     //Atributos
 
-
     //Construtor
     public Cardapio() {
         // Required empty public constructor
