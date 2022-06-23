@@ -11,9 +11,9 @@ public class produto {
     private double preco, desconto;
 
     //Construtor
-    public produto(long id, Bitmap imagem, String nome, double preco, double desconto) {
+    public produto(long id, String nome, double preco, double desconto) {
         this.id = id;
-        this.imagem = imagem;
+//        this.imagem = imagem;
         this.nome = nome;
         this.preco = preco;
         this.desconto = desconto;

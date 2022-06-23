@@ -46,7 +46,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 
         db.insert("produto", null, insere_valor);
 
-        db.close();
+//        db.close();
     }
 
     public void atualizar(String id, produto p){
@@ -94,7 +94,6 @@ public class ProdutoDAO extends SQLiteOpenHelper {
     public void popularBD(){
         produto pr = new produto(
                 0,
-                null,
                 "Ana",
                 100,
                 10
