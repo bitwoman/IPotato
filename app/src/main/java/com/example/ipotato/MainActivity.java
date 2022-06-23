@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.ipotato.dao.PedidoDAO;
 import com.example.ipotato.dao.ProdutoDAO;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,5 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
         ProdutoDAO pDAO = new ProdutoDAO(this);
         pDAO.popularBD();
+
+        PedidoDAO peDAO = new PedidoDAO(this);
+        peDAO.popularBD();
     }
 }

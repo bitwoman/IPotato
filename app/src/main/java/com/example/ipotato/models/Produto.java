@@ -2,7 +2,7 @@ package com.example.ipotato.models;
 
 import android.graphics.Bitmap;
 
-public class produto {
+public class Produto {
 
     //Atributos
     private long id;
@@ -11,7 +11,7 @@ public class produto {
     private double preco, desconto;
 
     //Construtor
-    public produto(long id, String nome, double preco, double desconto) {
+    public Produto(long id, String nome, double preco, double desconto) {
         this.id = id;
 //        this.imagem = imagem;
         this.nome = nome;

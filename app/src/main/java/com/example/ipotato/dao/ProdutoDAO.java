@@ -9,7 +9,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.example.ipotato.models.produto;
+import com.example.ipotato.models.Produto;
 
 public class ProdutoDAO extends SQLiteOpenHelper {
 
@@ -35,7 +35,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void inserir(produto p){
+    public void inserir(Produto p){
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -44,23 +44,23 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         insere_valor.put("preco", p.getPreco());
         insere_valor.put("desconto", p.getDesconto());
 
-        db.insert("produto", null, insere_valor);
+        db.insert("Produto", null, insere_valor);
 
 //        db.close();
     }
 
-    public void atualizar(String id, produto p){
+    public void atualizar(String id, Produto p){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues content = new ContentValues();
 //        content.put("_id", id);
-        //nome das minhas colunas / get da minha classe produto
+        //nome das minhas colunas / get da minha classe Produto
         content.put("nome", p.getNome());
         content.put("preco", p.getPreco());
         content.put("desconto", p.getDesconto());
 
                                                      //id = vai ser o id que eu to passando por parametro, no caso o id do usuario que esta atualizando
-        db.update("produto", content,"_id=?", new String[]{id});
+        db.update("Produto", content,"_id=?", new String[]{id});
 
         db.close();
     }
@@ -68,7 +68,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
     public void deletar(String id){
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.delete("produto", "_id=?", new String[]{id});
+        db.delete("Produto", "_id=?", new String[]{id});
 
         db.close();
     }
@@ -76,7 +76,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
     public void listar(){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query("produto", new String[] {"_id","nome"}, null, null, null, null, null);
+        Cursor cursor = db.query("Produto", new String[] {"_id","nome"}, null, null, null, null, null);
 
         if(cursor.moveToFirst()){
             do {
@@ -92,7 +92,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
     }
 
     public void popularBD(){
-        produto pr = new produto(
+        Produto pr = new Produto(
                 0,
                 "Ana",
                 100,
