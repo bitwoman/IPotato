@@ -14,7 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-
         android:shadowDx="2"
         android:shadowDy="5"
         android:shadowRadius="4"
