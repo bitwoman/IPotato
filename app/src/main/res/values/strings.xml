@@ -1,7 +1,6 @@
 <resources>
+    <!-- String principal, nome do APP -->
     <string name="app_name">IPotato</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- String's da página de Login -->
     <string name="textview_nome_aplicativo_page_login">IPotato</string>
@@ -15,6 +14,11 @@
     <!-- Strings do NavigationDrawer -->
     <string name="open">Abre a navegação</string>
     <string name="close">Fecha a navegação</string>
+    <string name="textview_nome_aplicativo_page_navdrawer">IPotato</string>
+    <string name="title_button_novo_pedido">Novo Pedido</string>
+    <string name="title_button_historico_pedidos">Histórico de Pedidos</string>
+    <string name="title_button_gerenciar_cardapio">Gerenciar Cardápio</string>
+    <string name="title_button_sair">Sair</string>
 
     <!-- String's da página de registro de usuário -->
     <string name="textview_nome_aplicativo_page_registrar">IPotato</string>
@@ -27,7 +31,6 @@
     <string name="button_registrar_page_registrar">Registrar</string>
     <string name="text_view_ano_desenvolvimento">© 2022</string>
 
-
     <!-- String's da página de iniciar pedido -->
     <string name="textview_bem_vindo_page_iniciar_pedido">Bem vindo,</string>
     <string name="textview_promocao_page_iniciar_pedido">EM PROMOÇÃO:</string>
@@ -36,7 +39,6 @@
     <string name="imageview_contentdescription_iconepromocao">Image View do Icone de Promoção</string>
     <string name="button_iniciar_pegido_page_iniciar_pedido">Iniciar Pedido</string>
 
-
     <!-- String's da página de Cardápio -->
     <string name="button_adicionar_qtde_item">+</string>
     <string name="content_description_imageview_produto">Icone do produto</string>
@@ -44,11 +46,6 @@
     <string name="txt_preco_produto">R$ 20,00</string>
     <string name="txt_button_remover_qtde_item">-</string>
     <string name="txt_button_adicionar_qtde_item">+</string>
-
-
-    <!-- String's da página do navdrawer -->
-    <string name="textview_nome_aplicativo_page_navdrawer">IPotato</string>
-
 
     <!-- String's da action bar-->
     <string name="action_bar_button_carrinho">Botão do carrinho da action bar</string>
