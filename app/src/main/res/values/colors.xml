@@ -64,7 +64,7 @@
 
 
     <!-- PÁGINA DO NAVDRAWER -->
-    <color name="amarelo_txtview_nome_navdrawer">#ffc107</color>
+    <color name="amarelo_txtview_nome_navdrawer">#FFD607</color>
 
 
     <color name="vermelho_crimson_principal">#f44336</color>

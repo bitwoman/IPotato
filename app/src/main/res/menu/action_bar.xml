@@ -6,6 +6,6 @@
     <item
         android:id="@+id/idButtonCarrinho"
         android:icon="@drawable/ic_carrinho_compras"
-        app:showAsAction="ifRoom|withText"
-        android:title=" " />
+        app:showAsAction="always"
+        android:title="Teste" />
 </menu>

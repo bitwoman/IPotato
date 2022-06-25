@@ -89,14 +89,14 @@ public class IniciarPedido extends Fragment implements View.OnClickListener, Nav
             case R.id.idButtonNovoPedido:
                 navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
                 break;
-            case R.id.idButtonHistorico:
-                break;
-            case R.id.idButtonGerenciarGardapio:
-                break;
-            case R.id.idButtonSair:
-                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
-//                finish();
-                break;
+//            case R.id.idButtonHistorico:
+//                break;
+//            case R.id.idButtonGerenciarGardapio:
+//                break;
+//            case R.id.idButtonSair:
+//                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
+////                finish();
+//                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
