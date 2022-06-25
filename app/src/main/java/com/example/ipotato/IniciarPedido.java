@@ -80,7 +80,7 @@ public class IniciarPedido extends Fragment implements View.OnClickListener, Nav
     @Override
     public void onClick(View view) {
 //        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
-        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
+        navController.navigate(R.id.action_iniciarPedido3_to_carrinho);
     }
 
     //Evento de clique dos botões presentes no menu do Navigation Drawer
