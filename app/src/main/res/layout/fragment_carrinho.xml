@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".Carrinho">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- arrumar strings dos respectivos componentes no xml de strings" -->
+        <ImageView
+            android:id="@+id/idImageViewItemBatataPageCarrinho"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:contentDescription="@string/content_description_imageview_produto"
+            tools:ignore="ImageContrastCheck"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/idTxtNomeProdutoPageCarrinho"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:layout_marginEnd="2dp"
+            android:text="@string/txt_nome_produto"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/idTxtPrecoPageCarrinho"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:layout_marginEnd="2dp"
+            android:text="@string/txt_preco_produto" />
+
+        <Button
+            android:id="@+id/idButtonRemoverQtdeItemPageCarrinho"
+            android:layout_width="10dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.5"
+            android:padding="1dp"
+            android:layout_marginEnd="2dp"
+            android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
+            android:text="@string/txt_button_remover_qtde_item"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck"/>
+
+        <Button
+            android:id="@+id/idButtonAdicionarQtdeItemPageCarrinho"
+            android:layout_width="10dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.5"
+            android:padding="1dp"
+            android:layout_marginEnd="2dp"
+            android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
+            android:text="@string/txt_button_adicionar_qtde_item"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck"/>
+
+        </LinearLayout>
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/idLayoutFecharPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <View
+            android:id="@+id/idDividerUm"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>-->
+
+        <!-- Arrumar a string no xml - criar a variável específica com esse texto -->
+        <!--<TextView
+            android:id="@+id/idTxtLabelFormaPagamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forma de Pagamento"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idDividerUm" />-->
+
+        <!-- Arrumar a string's no xml - criar a variável específica com esse texto -->
+        <!--<RadioGroup
+            android:id="@+id/idRadioGroupFormaPagamento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtLabelFormaPagamento">
+
+            <RadioButton
+                android:id="@+id/idsButtonFormaPgtoDinheiro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dinheiro" />
+
+            <RadioButton
+                android:id="@+id/idsButtonFormaPgtoCredito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cartão de Crédito" />
+
+            <RadioButton
+                android:id="@+id/idsButtonFormaPgtoDebito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cartão de Débito" />
+        </RadioGroup>
+
+        <View
+            android:id="@+id/idDividerDois"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idRadioGroupFormaPagamento" />
+
+        <TextView
+            android:id="@+id/idTxtViewEnderecoEntrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Endereço de Entrega"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idDividerDois" />
+
+        <EditText
+            android:id="@+id/idEditTextEnderecoEntrega"
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/edit_text_layout"
+            android:ems="10"
+            android:hint="Endereço de Entrega"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtViewEnderecoEntrega" />
+
+        <Button
+            android:id="@+id/idButtonFecharPedido"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/vermelho_botao_registrar"
+            android:text="Fechar Pedido"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idEditTextEnderecoEntrega" />
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+</FrameLayout>
