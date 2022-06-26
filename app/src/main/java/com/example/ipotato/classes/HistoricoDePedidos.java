@@ -1,4 +1,4 @@
-package com.example.ipotato;
+package com.example.ipotato.classes;
 
 import android.os.Bundle;
 
@@ -10,10 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class GerenciarCardapio extends Fragment {
+import com.example.ipotato.R;
 
-   //Construtor
-    public GerenciarCardapio() {
+public class HistoricoDePedidos extends Fragment {
+
+    //Construtor
+    public HistoricoDePedidos() {
+
     }
 
     @Override
@@ -24,7 +27,7 @@ public class GerenciarCardapio extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gerenciar_cardapio, container, false);
+        return inflater.inflate(R.layout.fragment_historico_de_pedidos, container, false);
     }
 
     @Override

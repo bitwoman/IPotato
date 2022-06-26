@@ -67,6 +67,10 @@
     <color name="amarelo_txtview_nome_navdrawer">#FFD607</color>
 
 
+    <!-- PÁGINA DE CADASTRO DO PRODUTO -->
+    <color name="vermelho_botão_cadastrar_produto">#c62828</color>
+
+
     <color name="vermelho_crimson_principal">#f44336</color>
     <color name="vermelho_crimson_secundario">#c62828</color>
     <color name="amarelo_barra_notificacoes_primario">#ffee58</color>
