@@ -37,6 +37,15 @@
         <action
             android:id="@+id/action_iniciarPedido3_to_carrinho"
             app:destination="@id/carrinho" />
+        <action
+            android:id="@+id/action_iniciarPedido3_to_gerenciarCardapio"
+            app:destination="@id/gerenciarCardapio" />
+        <action
+            android:id="@+id/action_iniciarPedido3_to_historicoDePedidos"
+            app:destination="@id/historicoDePedidos" />
+        <action
+            android:id="@+id/action_iniciarPedido3_to_cadastroProduto"
+            app:destination="@id/cadastroProduto" />
     </fragment>
     <fragment
         android:id="@+id/cardapio"
@@ -52,4 +61,19 @@
         android:name="com.example.ipotato.Carrinho"
         android:label="fragment_carrinho"
         tools:layout="@layout/fragment_carrinho" />
+    <fragment
+        android:id="@+id/gerenciarCardapio"
+        android:name="com.example.ipotato.GerenciarCardapio"
+        android:label="fragment_gerenciar_cardapio"
+        tools:layout="@layout/fragment_gerenciar_cardapio" />
+    <fragment
+        android:id="@+id/historicoDePedidos"
+        android:name="com.example.ipotato.HistoricoDePedidos"
+        android:label="fragment_historico_de_pedidos"
+        tools:layout="@layout/fragment_historico_de_pedidos" />
+    <fragment
+        android:id="@+id/cadastroProduto"
+        android:name="com.example.ipotato.CadastroProduto"
+        android:label="fragment_cadastro_produto"
+        tools:layout="@layout/fragment_cadastro_produto" />
 </navigation>
