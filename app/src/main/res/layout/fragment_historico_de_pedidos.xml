@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HistoricoDePedidos">
+    tools:context=".classes.HistoricoDePedidos">
 
     <!-- ListView responsável por listar na tela os itens que já foram comprados -->
     <ListView

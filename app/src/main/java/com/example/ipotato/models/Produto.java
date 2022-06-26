@@ -2,6 +2,8 @@ package com.example.ipotato.models;
 
 import android.graphics.Bitmap;
 
+import java.util.ArrayList;
+
 public class Produto {
 
     //Atributos
@@ -58,4 +60,13 @@ public class Produto {
     public void setDesconto(double desconto) {
         this.desconto = desconto;
     }
+
+    //Método personalizado
+    public static ArrayList<Produto> getProdutos(){
+        ArrayList<Produto> batatas = new ArrayList<Produto>();
+
+
+        return batatas;
+    }
+
 }

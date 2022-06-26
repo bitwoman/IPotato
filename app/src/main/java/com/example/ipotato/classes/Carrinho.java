@@ -1,4 +1,4 @@
-package com.example.ipotato;
+package com.example.ipotato.classes;
 
 import android.os.Bundle;
 
@@ -10,11 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CadastroProduto extends Fragment {
+import com.example.ipotato.R;
+
+public class Carrinho extends Fragment {
 
     //Construtor
-    public CadastroProduto() {
-        // Required empty public constructor
+    public Carrinho() {
+
     }
 
     @Override
@@ -25,7 +27,7 @@ public class CadastroProduto extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cadastro_produto, container, false);
+        return inflater.inflate(R.layout.fragment_carrinho, container, false);
     }
 
     @Override
