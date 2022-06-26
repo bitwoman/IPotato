@@ -16,13 +16,16 @@ import java.util.List;
 
 public class UsuarioDAO extends SQLiteOpenHelper {
 
+    //Nome do banco e versão
     public final static String NOME_BANCO = "db1";
     public final static int VERSAO_BANCO = 1;
 
+    //Construtor
     public UsuarioDAO(@Nullable Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
     }
 
+    //On create para executar o SQL que vai criar as tabelas do banco e as colunas.
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE usuario (" +
@@ -33,25 +36,57 @@ public class UsuarioDAO extends SQLiteOpenHelper {
                 "pass TEXT);");
     }
 
+    //função de atualização do banco caso já exista uma tabela com o nome duplicado
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS usuario");
         onCreate(sqLiteDatabase);
     }
 
+    //Função de inserção de registros no banco
     public void inserir(Usuario u) {
+
+        //criando variável do tipo SQLiteDatabase e chamando o método getWritableDatabase(), funciona para alterações e não somente leitura
         SQLiteDatabase db = this.getWritableDatabase();
+
+        // criando uma instância de ContentValues que é responsável por fazer o get dos campos, no caso inserir os valores nas
+        // respectivas colunas da tabela no banco
         ContentValues values = new ContentValues();
         values.put("nome", u.getNome());
         values.put("email", u.getEmail());
         values.put("username", u.getUsername());
         values.put("pass", u.getPass());
+
+        //Chamando minha variavel db e passando a função de inserção no banco, colocando o nome da tabela e passando os valores
+        // coletados através do insere_valores
         db.insert("usuario", null, values);
 //        db.close();
     }
 
+    //Função para atualizar registros no banco
+    public void atualizar(String id, Usuario u){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        //nome das minhas colunas / get da minha classe Pedido
+        values.put("nome", u.getNome());
+        values.put("email", u.getEmail());
+        values.put("username", u.getUsername());
+        values.put("pass", u.getPass());
+                                                    //id = vai ser o id que eu to passando por parametro, no caso o id do usuario que
+                                                    //esta atualizando
+        db.update("usuario", values, "id = ?", new String[]{id});
+
+        db.close();
+    }
+
     public List<Usuario> getAllUsers() {
+
+        //Função de listagem de registros no banco
         SQLiteDatabase db = this.getReadableDatabase();
+        //Criando um cursor que vai executar uma Query no meu banco, nessa Query eu passo como parametro a
+        // tabela a qual vou mexer e os campos que eu quero exibir na listagem
         Cursor c = db.query(
                 "usuario", new String[] {"*"}, null,
                 null,
@@ -59,9 +94,11 @@ public class UsuarioDAO extends SQLiteOpenHelper {
                 null,
                 null
         );
+        //Se meu cursor acessar o primeiro registro:
         List<Usuario> listU = new ArrayList<Usuario>();
         if (c.moveToFirst()) {
             do {
+                //o getColumnIndexOrThrow está pedindo para eu puxar o valor ou abrir uma exceção na coluna chamada "_id"
                 long id = c.getLong(c.getColumnIndexOrThrow("_id"));
                 String nome = c.getString(c.getColumnIndexOrThrow("nome"));
                 String email = c.getString(c.getColumnIndexOrThrow("email"));
@@ -71,6 +108,7 @@ public class UsuarioDAO extends SQLiteOpenHelper {
                     id, nome, email, username, pass
                 );
                 listU.add(u);
+            //Enquanto meu cursor se mover para o registro seguinte:
             } while (c.moveToNext());
         }
         c.close();
@@ -78,9 +116,13 @@ public class UsuarioDAO extends SQLiteOpenHelper {
         return listU;
     }
 
+    //Função de deleção de registros no banco
     public void deletar(long id) {
         SQLiteDatabase db = this.getReadableDatabase();
+
+        //Chamando a função de delete, passando a tabela que eu vou mexer e o id do usuário que eu quero deletar
         db.delete("usuario", "_id = ?", new String[]{String.valueOf(id)});
+
         db.close();
     }
 
