@@ -58,6 +58,7 @@
             android:padding="1dp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
+
     </LinearLayout>
 
 </FrameLayout>
