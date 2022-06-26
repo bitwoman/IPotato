@@ -1,4 +1,4 @@
-package com.example.ipotato;
+package com.example.ipotato.classes;
 
 import android.os.Bundle;
 
@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.ipotato.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class IniciarPedido extends Fragment implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {

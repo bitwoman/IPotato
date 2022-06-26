@@ -5,7 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".Cardapio">
+    tools:context=".classes.Cardapio">
+
+   <LinearLayout
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_height="160dp">
+
+        <TextView
+            android:id="@+id/idTxtViewNomeProdutoPromo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:id="@+id/idImgViewImagemPromo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:gravity="center"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/idTxtViewPrecoProdutoPromo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="R$ "
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

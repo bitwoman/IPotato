@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/login"
-        android:name="com.example.ipotato.Login"
+        android:name="com.example.ipotato.classes.Login"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/cadastroUsuario"
-        android:name="com.example.ipotato.CadastroUsuario"
+        android:name="com.example.ipotato.classes.CadastroUsuario"
         android:label="fragment_cadastro_usuario"
         tools:layout="@layout/fragment_cadastro_usuario" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/iniciarPedido3"
-        android:name="com.example.ipotato.IniciarPedido"
+        android:name="com.example.ipotato.classes.IniciarPedido"
         android:label="fragment_iniciar_pedido"
         tools:layout="@layout/fragment_iniciar_pedido" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/cardapio"
-        android:name="com.example.ipotato.Cardapio"
+        android:name="com.example.ipotato.classes.Cardapio"
         android:label="fragment_cardapio"
         tools:layout="@layout/fragment_cardapio" >
         <action
@@ -58,22 +58,22 @@
     </fragment>
     <fragment
         android:id="@+id/carrinho"
-        android:name="com.example.ipotato.Carrinho"
+        android:name="com.example.ipotato.classes.Carrinho"
         android:label="fragment_carrinho"
         tools:layout="@layout/fragment_carrinho" />
     <fragment
         android:id="@+id/gerenciarCardapio"
-        android:name="com.example.ipotato.GerenciarCardapio"
+        android:name="com.example.ipotato.classes.GerenciarCardapio"
         android:label="fragment_gerenciar_cardapio"
         tools:layout="@layout/fragment_gerenciar_cardapio" />
     <fragment
         android:id="@+id/historicoDePedidos"
-        android:name="com.example.ipotato.HistoricoDePedidos"
+        android:name="com.example.ipotato.classes.HistoricoDePedidos"
         android:label="fragment_historico_de_pedidos"
         tools:layout="@layout/fragment_historico_de_pedidos" />
     <fragment
         android:id="@+id/cadastroProduto"
-        android:name="com.example.ipotato.CadastroProduto"
+        android:name="com.example.ipotato.classes.CadastroProduto"
         android:label="fragment_cadastro_produto"
         tools:layout="@layout/fragment_cadastro_produto" />
 </navigation>

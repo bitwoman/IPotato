@@ -1,4 +1,4 @@
-package com.example.ipotato;
+package com.example.ipotato.classes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.ipotato.R;
 import com.example.ipotato.dao.PedidoDAO;
 import com.example.ipotato.dao.ProdutoDAO;
 import com.example.ipotato.dao.UsuarioDAO;

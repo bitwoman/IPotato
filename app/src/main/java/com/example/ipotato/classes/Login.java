@@ -1,4 +1,4 @@
-package com.example.ipotato;
+package com.example.ipotato.classes;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.ipotato.R;
 
 public class Login extends Fragment implements View.OnClickListener{
 
