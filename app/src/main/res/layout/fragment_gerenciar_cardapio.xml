@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".Cardapio">
+    tools:context=".GerenciarCardapio">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+        <!-- Criar string para o texto -->
         <ImageView
-            android:id="@+id/idImageViewItemBatata"
+            android:id="@+id/idImageViewProduto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -24,8 +23,9 @@
             tools:ignore="ImageContrastCheck"
             tools:src="@tools:sample/avatars" />
 
+        <!-- Criar string para o texto -->
         <TextView
-            android:id="@+id/idTxtNomeProduto"
+            android:id="@+id/idTxtNomeProdutoPageGerenciar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -34,42 +34,30 @@
             android:text="@string/txt_nome_produto"
             android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/idTxtPreco"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="2dp"
-            android:layout_weight="2"
-            android:text="@string/txt_preco_produto" />
 
-        <Button
-            android:id="@+id/idButtonRemoverQtdeItem"
+        <ImageView
+            android:id="@+id/idButtonEditarProduto"
             android:layout_width="10dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="2dp"
             android:layout_weight="0.5"
-            android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
+            android:background="@drawable/ic_edit"
             android:padding="1dp"
-            android:text="@string/txt_button_remover_qtde_item"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck"/>
+            android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/idButtonAdicionarQtdeItem"
+        <ImageView
+            android:id="@+id/idButtonExcluirProduto"
             android:layout_width="10dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="2dp"
             android:layout_weight="0.5"
-            android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
+            android:background="@drawable/iconexcluir"
             android:padding="1dp"
-            android:text="@string/txt_button_adicionar_qtde_item"
             android:textColor="@color/black"
-            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
-
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </FrameLayout>

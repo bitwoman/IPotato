@@ -1,28 +1,90 @@
 package com.example.ipotato;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.ipotato.dao.PedidoDAO;
 import com.example.ipotato.dao.ProdutoDAO;
 import com.example.ipotato.dao.UsuarioDAO;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ProdutoDAO pDAO = new ProdutoDAO(this);
-        pDAO.popularBD();
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        PedidoDAO peDAO = new PedidoDAO(this);
-        peDAO.popularBD();
+        drawerLayout = findViewById(R.id.drawerLayout);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
 
-        UsuarioDAO uDao = new UsuarioDAO(this);
-        uDao.popularTabela();
+        navigationView = findViewById(R.id.navi_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+//        ProdutoDAO pDAO = new ProdutoDAO(this);
+//        pDAO.popularBD();
+//
+//        PedidoDAO peDAO = new PedidoDAO(this);
+//        peDAO.popularBD();
+//
+//        UsuarioDAO uDao = new UsuarioDAO(this);
+//        uDao.popularTabela();
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+//        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.idButtonNovoPedido:
+                Log.i("sucesso", "Entrei no click");
+                Toast.makeText(getApplicationContext(), "Farei um novo pedido", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
+
+    private void showFragments(Fragment fragment) {
+
+        FragmentTransaction frag = getSupportFragmentManager().beginTransaction();
+        frag.replace(R.id.fragmentContainerView, fragment);
+        frag.commit();
 
     }
 }
