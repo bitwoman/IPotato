@@ -34,10 +34,22 @@
         <action
             android:id="@+id/action_iniciarPedido3_to_cardapio"
             app:destination="@id/cardapio" />
+        <action
+            android:id="@+id/action_iniciarPedido3_to_carrinho"
+            app:destination="@id/carrinho" />
     </fragment>
     <fragment
         android:id="@+id/cardapio"
         android:name="com.example.ipotato.Cardapio"
         android:label="fragment_cardapio"
-        tools:layout="@layout/fragment_cardapio" />
+        tools:layout="@layout/fragment_cardapio" >
+        <action
+            android:id="@+id/action_cardapio_to_carrinho"
+            app:destination="@id/carrinho" />
+    </fragment>
+    <fragment
+        android:id="@+id/carrinho"
+        android:name="com.example.ipotato.Carrinho"
+        android:label="fragment_carrinho"
+        tools:layout="@layout/fragment_carrinho" />
 </navigation>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".Carrinho">
+
+    <!-- ListView responsável por listar na tela os itens que foram adicionados ao carrinho do usuário -->
+    <ListView
+        android:id="@+id/idListViewContainerItensPageCarrinho"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </ListView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/idLayoutFecharPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <View
+            android:id="@+id/idDividerZero"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/idTxtViewValorTotalPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: R$ "
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/idDividerZero"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/idDividerUm"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:backgroundTint="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtViewValorTotalPedido" />
+
+        <!-- Arrumar a string no xml - criar a variável específica com esse texto -->
+        <TextView
+            android:id="@+id/idTxtLabelFormaPagamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forma de Pagamento"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idDividerUm" />
+
+        <!-- Arrumar a string's no xml - criar a variável específica com esse texto -->
+        <RadioGroup
+            android:id="@+id/idRadioGroupFormaPagamento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtLabelFormaPagamento">
+
+            <RadioButton
+                android:id="@+id/idsButtonFormaPgtoDinheiro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dinheiro" />
+
+            <RadioButton
+                android:id="@+id/idsButtonFormaPgtoCredito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cartão de Crédito" />
+
+            <RadioButton
+                android:id="@+id/idsButtonFormaPgtoDebito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cartão de Débito" />
+        </RadioGroup>
+
+        <View
+            android:id="@+id/idDividerDois"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idRadioGroupFormaPagamento" />
+
+        <TextView
+            android:id="@+id/idTxtViewEnderecoEntrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Endereço de Entrega"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idDividerDois" />
+
+        <EditText
+            android:id="@+id/idEditTextEnderecoEntrega"
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/edit_text_layout"
+            android:ems="10"
+            android:hint="Endereço de Entrega"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtViewEnderecoEntrega" />
+
+        <Button
+            android:id="@+id/idButtonFecharPedido"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/vermelho_botao_registrar"
+            android:text="Fechar Pedido"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idEditTextEnderecoEntrega" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
