@@ -34,7 +34,8 @@
             android:text="@string/txt_nome_produto"
             android:textStyle="bold"/>
 
-        <Button
+
+        <ImageView
             android:id="@+id/idButtonEditarProduto"
             android:layout_width="10dp"
             android:layout_height="35dp"
@@ -42,13 +43,11 @@
             android:layout_marginEnd="2dp"
             android:layout_weight="0.5"
             android:background="@drawable/ic_edit"
-            android:backgroundTintMode="screen"
             android:padding="1dp"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            android:textStyle="bold"/>
 
-        <Button
+        <ImageView
             android:id="@+id/idButtonExcluirProduto"
             android:layout_width="10dp"
             android:layout_height="35dp"
@@ -58,8 +57,7 @@
             android:background="@drawable/iconexcluir"
             android:padding="1dp"
             android:textColor="@color/black"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </FrameLayout>
