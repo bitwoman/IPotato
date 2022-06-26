@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -62,8 +63,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        int id = item.getItemId();
         switch (item.getItemId()) {
             case R.id.idButtonNovoPedido:
-                Log.i("sucesso", "Entrei no click");
-                Toast.makeText(getApplicationContext(), "Farei um novo pedido", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, IniciarPedido.class, null).commit();
+                break;
+            case R.id.idButtonHistorico:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, HistoricoDePedidos.class, null).commit();
+                break;
+            case R.id.idButtonGerenciarGardapio:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, GerenciarCardapio.class, null).commit();
+                break;
+            case R.id.idButtonSair:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, Login.class, null).commit();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
