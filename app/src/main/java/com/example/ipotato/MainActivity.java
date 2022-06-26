@@ -25,6 +25,4 @@ public class MainActivity extends AppCompatActivity {
         uDao.popularTabela();
 
     }
-
-
 }
