@@ -20,13 +20,14 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_text_layout"
             android:ems="10"
-            android:hint="Nome do Produto"
+            android:hint="@string/txt_nome_do_produto"
             android:inputType="textPersonName"
             android:padding="10dip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/idEditTextDescricaoProdutoCadastro"
@@ -37,12 +38,14 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_text_layout"
             android:ems="10"
-            android:hint="Descrição do Produto"
-            android:padding="10dip"
+            android:hint="@string/txt_descricao_do_produto"
             android:inputType="textPersonName"
+            android:padding="10dip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeProdutoCadastro" />
+            app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeProdutoCadastro"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
