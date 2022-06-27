@@ -47,8 +47,18 @@
     <string name="txt_button_remover_qtde_item">-</string>
     <string name="txt_button_adicionar_qtde_item">+</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings da página de cadstro de produto -->
+    <string name="txt_nome_do_produto">Nome do Produto</string>
+    <string name="txt_descricao_do_produto">Descrição do Produto</string>
 
+    <!-- Strings da página de carrinho -->
+    <string name="txt_total">Total: R$</string>
+    <string name="txt_forma_de_pagamento">Forma de Pagamento</string>
+    <string name="txt_radioButton_dinheiro">Dinheiro</string>
+    <string name="txt_radioButton_cartaoCredito">Cartão de Crédito</string>
+    <string name="txt_radioButton_cartaoDebito">Cartão de Débito</string>
+    <string name="txtBox_enderecoDeEntrega">Endereço de Entrega</string>
+    <string name="txt_enderecoDeEntrega">Endereço de Entrega</string>
+    <string name="button_fecharPedido">Fechar Pedido</string>
 
 </resources>
