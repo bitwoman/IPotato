@@ -120,16 +120,16 @@ public class PedidoDAO extends SQLiteOpenHelper {
                 String metodoPag = cursor.getString(cursor.getColumnIndexOrThrow("metodoPag"));
                 String endereco = cursor.getString(cursor.getColumnIndexOrThrow("endereco"));
 
-                SQLiteDatabase db2 = this.getWritableDatabase();
-                db2.execSQL("SELECT _id, produto, quantidade, metodoPag, endereco " +
-                        "FROM pedido AS ped" +
-                        "INNER JOIN produto AS prod" +
-                        "ON ped.id = prod.id");
+//                SQLiteDatabase db2 = this.getWritableDatabase();
+//                db2.execSQL("SELECT _id, produto, quantidade, metodoPag, endereco " +
+//                        "FROM pedido AS ped" +
+//                        "INNER JOIN produto AS prod" +
+//                        "ON ped.id = prod.id");
 
-                Pedido p = new Pedido(
-                        id, produto, quantidade, metodoPag, endereco
-                );
-                listP.add(p);
+//                Pedido p = new Pedido(
+//                        id, produto, quantidade, metodoPag, endereco
+//                );
+//                listP.add(p);
 //                Log.i("Registro: ", id + "" + produto + "" + quantidade + "" + metodoPag + "" + endereco);
             //Enquanto meu cursor se mover para o registro seguinte:
             } while (cursor.moveToNext());
