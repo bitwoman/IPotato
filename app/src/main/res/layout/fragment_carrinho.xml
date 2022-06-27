@@ -35,7 +35,7 @@
             android:id="@+id/idTxtViewValorTotalPedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total: R$ "
+            android:text="@string/txt_total"
             android:textColor="@color/black"
             android:textSize="12dp"
             android:textStyle="bold"
@@ -55,7 +55,7 @@
             android:id="@+id/idTxtLabelFormaPagamento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forma de Pagamento"
+            android:text="@string/txt_forma_de_pagamento"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -78,19 +78,19 @@
                 android:id="@+id/idsButtonFormaPgtoDinheiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dinheiro" />
+                android:text="@string/txt_radioButton_dinheiro" />
 
             <RadioButton
                 android:id="@+id/idsButtonFormaPgtoCredito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cartão de Crédito" />
+                android:text="@string/txt_radioButton_cartaoCredito" />
 
             <RadioButton
                 android:id="@+id/idsButtonFormaPgtoDebito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cartão de Débito" />
+                android:text="@string/txt_radioButton_cartaoDebito" />
         </RadioGroup>
 
         <View
@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Endereço de Entrega"
+            android:text="@string/txt_enderecoDeEntrega"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -125,13 +125,15 @@
             android:layout_marginEnd="24dp"
             android:background="@drawable/edit_text_layout"
             android:ems="10"
-            android:hint="Endereço de Entrega"
+            android:hint="@string/txtBox_enderecoDeEntrega"
             android:inputType="textPersonName"
             android:padding="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idTxtViewEnderecoEntrega" />
+            app:layout_constraintTop_toBottomOf="@+id/idTxtViewEnderecoEntrega"
+            tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/idButtonFecharPedido"
@@ -139,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/vermelho_botao_registrar"
-            android:text="Fechar Pedido"
+            android:text="@string/button_fecharPedido"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
