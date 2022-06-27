@@ -24,14 +24,14 @@ import android.widget.Toast;
 import com.example.ipotato.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class IniciarPedido extends Fragment {
+public class IniciarPedido extends Fragment implements View.OnClickListener {
 
     //Atributos
-//    NavController navController;
-//    DrawerLayout drawerLayout;
-//    NavigationView navigationView;
-//    Button buttonIniciarPedido;
-//    AppBarConfiguration mAppBarConfiguration;
+    NavController navController;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Button buttonIniciarPedido;
+    AppBarConfiguration mAppBarConfiguration;
 
     //Construtor
     public IniciarPedido() {
@@ -55,70 +55,70 @@ public class IniciarPedido extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //Instância do Navigation Controller, é responsável pelo gerenciamento das tramitações entre os fragmentos
-//        navController = Navigation.findNavController(view);
-//
+        navController = Navigation.findNavController(view);
+
 //        drawerLayout = view.findViewById(R.id.drawer_layout);
 //        navigationView = view.findViewById(R.id.nav_drawer);
 //        navigationView.setNavigationItemSelectedListener(this);
 //
-//        buttonIniciarPedido = view.findViewById(R.id.idButtonIniciarPedido);
-//        buttonIniciarPedido.setOnClickListener(this);
-//
+        buttonIniciarPedido = view.findViewById(R.id.idButtonIniciarPedido);
+        buttonIniciarPedido.setOnClickListener(this);
+
 //        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.cardapio).build();
 //
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                getParentFragment().getActivity(),
-//                drawerLayout,
-//                R.string.open,
-//                R.string.close
+//               getParentFragment().getActivity(),
+//               drawerLayout,
+//               R.string.open,
+//               R.string.close
 //        );
+//
 //        drawerLayout.addDrawerListener(toggle);
 //        toggle.syncState();
-
     }
 
     //Evento de clique "padrão" da página de Iniciar Pedido
-//    @Override
-//    public void onClick(View view) {
-////        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
-//        navController.navigate(R.id.action_iniciarPedido3_to_cadastroProduto);
-//    }
-//
-//    //Evento de clique dos botões presentes no menu do Navigation Drawer
-//    @Override
-//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()){
-//            case R.id.idButtonNovoPedido:
-//                navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
-//                break;
-//            case R.id.idButtonHistorico:
-//                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.idButtonGerenciarGardapio:
-//                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.idButtonSair:
-//                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
-////                finish();
-//                break;
-//        }
-//
-//        drawerLayout.closeDrawer(GravityCompat.START);
-//
-//        return true;
-//    }
+    @Override
+    public void onClick(View view) {
+//        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
+        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
+    }
 
-    //Recriei o método de finish, pois o mesmo não é aceito no switch dentro do onNavigationItemSelected
-//    public void finish(){
-//        finish();
-//    }
+    //Evento de clique dos botões presentes no menu do Navigation Drawer
+    /*@Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.idButtonNovoPedido:
+                navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
+                break;
+            case R.id.idButtonHistorico:
+                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.idButtonGerenciarGardapio:
+                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.idButtonSair:
+                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
+//                finish();
+                break;
+        }
 
-    //Método responsável pela ação de fechar o menu caso o usuário aperte o botão de "voltar" no Android - ao invés de fechar o App ou voltar para alguma outra aba.
-//    public void onBackPressed() {
-//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//            drawerLayout.closeDrawer(GravityCompat.START);
-//        } else {
-//            onBackPressed();
-//        }
-//    }
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        return true;
+    }*/
+
+//    Recriei o método de finish, pois o mesmo não é aceito no switch dentro do onNavigationItemSelected
+    public void finish(){
+        finish();
+    }
+//
+//    Método responsável pela ação de fechar o menu caso o usuário aperte o botão de "voltar" no Android - ao invés de fechar o App ou voltar para alguma outra aba.
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            onBackPressed();
+        }
+    }
 }

@@ -7,40 +7,21 @@
     android:orientation="horizontal"
     tools:context=".classes.Cardapio">
 
-   <LinearLayout
-        android:layout_margin="16dp"
-        android:orientation="vertical"
-        android:layout_width="100dp"
-        android:layout_height="160dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/idTxtViewNomeProdutoPromo"
-            android:layout_width="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idRecyclerProdutosPromo"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="TextView"
-            android:textColor="@color/black"/>
-
-        <ImageView
-            android:id="@+id/idImgViewImagemPromo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="8"
-            android:gravity="center"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/idTxtViewPrecoProdutoPromo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="R$ "
-            android:textColor="@color/black"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"

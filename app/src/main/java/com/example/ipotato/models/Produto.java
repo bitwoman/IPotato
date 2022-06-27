@@ -65,6 +65,10 @@ public class Produto {
     public static ArrayList<Produto> getProdutos(){
         ArrayList<Produto> batatas = new ArrayList<Produto>();
 
+        batatas.add(new Produto(1, "Batata 1", 9.90, 1.0));
+        batatas.add(new Produto(2, "Batata 2", 9.90, 1.0));
+        batatas.add(new Produto(3, "Batata 3", 9.90, 1.0));
+        batatas.add(new Produto(4, "Batata 4", 9.90, 1.0));
 
         return batatas;
     }

@@ -35,7 +35,6 @@ public class Login extends Fragment implements View.OnClickListener{
 
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,7 @@ public class Login extends Fragment implements View.OnClickListener{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        navController = Navigation.findNavController(view);
+        navController = Navigation.findNavController(view);
 
         editTextNomeUsuario = view.findViewById(R.id.idEditTextNomeUsuario);
         editTextSenhaUsuario = view.findViewById(R.id.idEditTextSenhaUsuario);
