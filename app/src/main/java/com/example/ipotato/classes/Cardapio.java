@@ -17,16 +17,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.ipotato.R;
 import com.example.ipotato.adapters.ProdutoAdapter;
 import com.example.ipotato.models.Produto;
 
-public class Cardapio extends Fragment implements ProdutoAdapter.OnRecyclerViewItemCliclListener {
+public class Cardapio extends Fragment {
 
     //Atributos
     private RecyclerView listaProdutosEmPromo;
+    private ListView lvLista;
 
     //Construtor
     public Cardapio() {
@@ -47,17 +49,5 @@ public class Cardapio extends Fragment implements ProdutoAdapter.OnRecyclerViewI
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        listaProdutosEmPromo = view.findViewById(R.id.idRecyclerProdutosPromo);
-        listaProdutosEmPromo.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
-
-        ProdutoAdapter adapter = new ProdutoAdapter(getContext(), Produto.getProdutos());
-
-        listaProdutosEmPromo.setAdapter(adapter);
-    }
-
-    @Override
-    public void onRecyclerViewItemClick(Produto p) {
-        Toast.makeText(getContext(), "Clicou em " + p.getNome(), Toast.LENGTH_SHORT).show();
     }
 }
