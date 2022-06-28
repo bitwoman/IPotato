@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ipotato.R;
+import com.example.ipotato.dao.UsuarioDAO;
 
 public class Login extends Fragment implements View.OnClickListener{
 
@@ -29,6 +30,7 @@ public class Login extends Fragment implements View.OnClickListener{
     Button buttonLogin, buttonRegistrar;
     TextView buttonPopularBanco;
     EditText editTextNomeUsuario, editTextSenhaUsuario;
+    UsuarioDAO tabelaUsuario;
 
     //construtor
     public Login() {
@@ -51,6 +53,8 @@ public class Login extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        tabelaUsuario = new UsuarioDAO(getContext());
 
         navController = Navigation.findNavController(view);
 
@@ -79,7 +83,17 @@ public class Login extends Fragment implements View.OnClickListener{
                     editTextSenhaUsuario.setHint("Campo obrigatório!");
                     editTextSenhaUsuario.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
                 } else{
-                    navController.navigate(R.id.action_login_to_iniciarPedido3);
+                    //Validação se as credenciais de login existem no banco de dados, se sim, o usuário será logado.
+                    String nomeUsuario = editTextNomeUsuario.getText().toString().trim();
+                    String senhaUsuario = editTextSenhaUsuario.getText().toString().trim();
+
+                    Boolean validarLogin = tabelaUsuario.validarLogin(nomeUsuario,senhaUsuario);
+
+                    if(validarLogin == true){
+                        navController.navigate(R.id.action_login_to_iniciarPedido3);
+                    }else{
+                        Toast.makeText(getContext(), "LOGIN INVÁLIDO", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 break;
 
