@@ -137,4 +137,48 @@ public class UsuarioDAO extends SQLiteOpenHelper {
         this.inserir(u);
         Log.i("inserir", "Inseri um usuário");
     }
+
+
+    //VALIDAÇÃO DE LOGIN DO USUÁRIO
+
+    //Validação de existência do nome de usuário
+    public Boolean validarUsuario(String nomeUsuario){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        //LIKE THIS > "SELECT * FROM usuario WHERE username = nomeUsuario";
+        String tabela = "usuario", where = "username = ?";
+        String[] colunas = {"username"};
+        String[] argumentos = {nomeUsuario};
+
+        Cursor cursor = db.query(tabela, colunas, where, argumentos, null, null, null, null);
+
+        if(cursor.getCount() > 0){
+            Log.i("VALIDACAO", "Usuário existe no banco de dados");
+            return true;
+        }else{
+            Log.i("VALIDACAO", "Usuário não existe no banco de dados");
+            return false;
+        }
+    }
+
+    //Validação de existência da senha do usuário
+    public Boolean validarLogin(String nomeUsuario, String senhaUsuario){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        //LIKE THIS > "SELECT * FROM usuario WHERE username = nomeUsuario";
+        String tabela = "usuario", where = "username = ? and pass = ?";
+        String[] colunas = {"username", "pass"};
+        String[] argumentos = {nomeUsuario, senhaUsuario};
+
+        Cursor cursor = db.query(tabela, colunas, where, argumentos, null, null, null, null);
+
+        if(cursor.getCount() > 0){
+            Log.i("VALIDACAO", "Login inválido");
+            return true;
+        }else{
+            Log.i("VALIDACAO", "Login inválido");
+            return false;
+        }
+    }
+
 }
