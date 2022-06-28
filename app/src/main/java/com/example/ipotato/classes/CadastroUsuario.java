@@ -46,6 +46,7 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((DrawerLocker) requireActivity()).liberarMenu(true);
         return inflater.inflate(R.layout.fragment_cadastro_usuario, container, false);
     }
 
@@ -69,7 +70,7 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if(validarCampos() == true) {
+        if(this.validarCampos() == true) {
             tabelaUsuario.inserir(usuarioParaCadastrar);
             navController.navigate(R.id.action_cadastroUsuario_to_iniciarPedido3);
         }else{
@@ -96,7 +97,9 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
 
             editTextConfirmarSenha.setHint("Campo obrigatório!");
             editTextConfirmarSenha.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
-        } else {
+        }
+        // Se os campos NÃO ESTIVEREM vazios!
+        else {
             String nome = editTextNomeCompleto.getText().toString().trim();
             String emailUsuario = editTextEmail.getText().toString().trim();
             String nomeUsuario = editTextNomeDeUsuario.getText().toString().trim();
@@ -170,6 +173,6 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
                 return false;
             }
         }
-        return false;
+        return true;
     }
 }

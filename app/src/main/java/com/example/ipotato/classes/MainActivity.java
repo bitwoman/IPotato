@@ -23,7 +23,9 @@ import com.example.ipotato.dao.ProdutoDAO;
 import com.example.ipotato.dao.UsuarioDAO;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener,
+        DrawerLocker {
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navi_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        liberarMenu(false);
 //        ProdutoDAO pDAO = new ProdutoDAO(this);
 //        pDAO.popularBD();
 //
@@ -96,5 +99,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         frag.replace(R.id.fragmentContainerView, fragment);
         frag.commit();
 
+    }
+
+    public void liberarMenu(boolean liberar) {
+        if (liberar == true) {
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+            getSupportActionBar().show();
+            return;
+        }
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        getSupportActionBar().hide();
+        return;
     }
 }
