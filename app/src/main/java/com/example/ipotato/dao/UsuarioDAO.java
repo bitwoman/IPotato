@@ -60,13 +60,13 @@ public class UsuarioDAO extends SQLiteOpenHelper {
         //Chamando minha variavel db e passando a função de inserção no banco, colocando o nome da tabela e passando os valores
         // coletados através do insere_valores
         db.insert("usuario", null, values);
+        Log.i("DADOS", "Usuário inserido");
 //        db.close();
     }
 
     //Função para atualizar registros no banco
     public void atualizar(String id, Usuario u){
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
 
         //nome das minhas colunas / get da minha classe Pedido
@@ -77,6 +77,7 @@ public class UsuarioDAO extends SQLiteOpenHelper {
                                                     //id = vai ser o id que eu to passando por parametro, no caso o id do usuario que
                                                     //esta atualizando
         db.update("usuario", values, "id = ?", new String[]{id});
+        Log.i("DADOS", "Usuário atualizado");
 
         db.close();
     }
@@ -122,6 +123,7 @@ public class UsuarioDAO extends SQLiteOpenHelper {
 
         //Chamando a função de delete, passando a tabela que eu vou mexer e o id do usuário que eu quero deletar
         db.delete("usuario", "_id = ?", new String[]{String.valueOf(id)});
+        Log.i("DADOS", "Usuário deletado");
 
         db.close();
     }
