@@ -48,6 +48,7 @@ public class Cardapio extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Toast.makeText(getContext(), "Estou no cardápio", Toast.LENGTH_SHORT).show();
         super.onViewCreated(view, savedInstanceState);
     }
 }
