@@ -9,16 +9,18 @@ public class Produto {
     //Atributos
     private long id;
     private Bitmap imagem;
-    private String nome;
+    private String nome, descricao;
     private double preco, desconto;
 
     //Construtor
-    public Produto(long id, String nome, double preco, double desconto) {
+    public Produto(long id, String nome, String descricao, double preco, double desconto) {
         this.id = id;
 //        this.imagem = imagem;
         this.nome = nome;
+        this.descricao = descricao;
         this.preco = preco;
         this.desconto = desconto;
+
     }
 
     public long getId() {
@@ -61,14 +63,22 @@ public class Produto {
         this.desconto = desconto;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     //Método personalizado
     public static ArrayList<Produto> getProdutos(){
         ArrayList<Produto> batatas = new ArrayList<Produto>();
 
-        batatas.add(new Produto(1, "Batata 1", 9.90, 1.0));
-        batatas.add(new Produto(2, "Batata 2", 9.90, 1.0));
-        batatas.add(new Produto(3, "Batata 3", 9.90, 1.0));
-        batatas.add(new Produto(4, "Batata 4", 9.90, 1.0));
+        batatas.add(new Produto(1, "Batata 1", "Batata 1", 9.90, 1.0));
+        batatas.add(new Produto(2, "Batata 2", "Batata 2",9.90, 1.0));
+        batatas.add(new Produto(3, "Batata 3", "Batata 3",9.90, 1.0));
+        batatas.add(new Produto(4, "Batata 4", "Batata 4",9.90, 1.0));
 
         return batatas;
     }

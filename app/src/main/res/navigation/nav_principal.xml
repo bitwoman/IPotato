@@ -75,5 +75,9 @@
         android:id="@+id/cadastroProduto"
         android:name="com.example.ipotato.classes.CadastroProduto"
         android:label="fragment_cadastro_produto"
-        tools:layout="@layout/fragment_cadastro_produto" />
+        tools:layout="@layout/fragment_cadastro_produto" >
+        <action
+            android:id="@+id/action_cadastroProduto_to_cardapio"
+            app:destination="@id/cardapio" />
+    </fragment>
 </navigation>

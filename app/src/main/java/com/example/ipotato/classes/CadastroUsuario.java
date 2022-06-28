@@ -67,6 +67,7 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
         buttonRegistrar.setOnClickListener(this);
     }
 
+    //Método do evento de click de botões padrões na tela (cadastrar usuario)
     @Override
     public void onClick(View view) {
         if(validarCampos() == true) {
@@ -78,10 +79,14 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
     }
 
     public Boolean validarCampos() {
-        if (editTextNomeCompleto.getText().toString().isEmpty() || editTextEmail.getText().toString().isEmpty() ||
-                editTextNomeDeUsuario.getText().toString().isEmpty() || editTextSenha.getText().toString().isEmpty() ||
-                editTextConfirmarSenha.getText().toString().isEmpty()) {
+        String nome = editTextNomeCompleto.getText().toString().trim();
+        String emailUsuario = editTextEmail.getText().toString().trim();
+        String nomeUsuario = editTextNomeDeUsuario.getText().toString().trim();
+        String senha = editTextSenha.getText().toString().trim();
+        String senhaConfirmada = editTextConfirmarSenha.getText().toString().trim();
 
+
+        if (nome.isEmpty() || emailUsuario.isEmpty() || nomeUsuario.isEmpty() || senha.isEmpty() || senhaConfirmada.isEmpty()) {
             editTextNomeCompleto.setHint("Campo obrigatório!");
             editTextNomeCompleto.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
 
@@ -97,47 +102,43 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
             editTextConfirmarSenha.setHint("Campo obrigatório!");
             editTextConfirmarSenha.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
         } else {
-            String nome = editTextNomeCompleto.getText().toString().trim();
-            String emailUsuario = editTextEmail.getText().toString().trim();
-            String nomeUsuario = editTextNomeDeUsuario.getText().toString().trim();
-            String senha = editTextSenha.getText().toString().trim();
-            String senhaConfirmada = editTextConfirmarSenha.getText().toString().trim();
-
             Pattern patternEmail = Patterns.EMAIL_ADDRESS;
             Pattern validacaoNome = Pattern.compile("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\\s]+");
 
             Pattern validacaoSenha = Pattern.compile("^" +
-                    "(?=.*[0-9])" +         //at least 1 digit
-                    "(?=.*[a-z])" +         //at least 1 lower case letter
-                    "(?=.*[A-Z])" +         //at least 1 upper case letter
-                    "(?=.*[a-zA-Z])" +      //any letter
-                    "(?=.*[@#$%^!&+=])" +    //at least 1 special character
-                    "(?=\\S+$)" +           //no white spaces
-                    ".{8,}" +               //at least 8 characters
+                    "(?=.*[0-9])" +         //tem que conter número
+                    "(?=.*[a-z])" +         //tem que letra minúscula
+                    "(?=.*[A-Z])" +         //tem que conter letra maiúscula
+                    "(?=.*[@#$%^!&+=])" +    //tem que ter caracter especial
+                    "(?=\\S+$)" +           //não pode ter espaço
+                    ".{8,}" +               //tem que ter pelo menos 8 caracteres
                     "$");
 
             Pattern validacaoSenhaConfirmada = Pattern.compile("^" +
-                    "(?=.*[0-9])" +         //at least 1 digit
-                    "(?=.*[a-z])" +         //at least 1 lower case letter
-                    "(?=.*[A-Z])" +         //at least 1 upper case letter
-                    "(?=.*[a-zA-Z])" +      //any letter
-                    "(?=.*[@#$%^!&+=])" +    //at least 1 special character
-                    "(?=\\S+$)" +           //no white spaces
-                    ".{8,}" +               //at least 8 characters
+                    "(?=.*[0-9])" +         //tem que conter número
+                    "(?=.*[a-z])" +         //tem que letra minúscula
+                    "(?=.*[A-Z])" +         //tem que conter letra maiúscula
+                    "(?=.*[@#$%^!&+=])" +    //tem que ter caracter especial
+                    "(?=\\S+$)" +           //não pode ter espaço
+                    ".{8,}" +               //tem que ter pelo menos 8 caracteres
                     "$");
 
+            //Instancia da classe Matcher para validar se o valor da variável é compatível com o padrão decretado no regex
             Matcher matchSenha = validacaoSenha.matcher(senha);
             Matcher matchNome = validacaoNome.matcher(nome);
             Matcher matchSenhaConfirmada = validacaoSenhaConfirmada.matcher(senhaConfirmada);
 
+            //Resultado em booleano da validação do regex nos campos
             boolean respostaValicaoNome = matchNome.matches();
             boolean validacaoEmail = patternEmail.matcher(editTextEmail.getText().toString().trim()).matches();
             boolean respostaValicaoSenha = matchSenha.matches();
             boolean respostaValicaoSenhaConfirmada = matchSenhaConfirmada.matches();
             boolean validaNomeUsuarioExistente = tabelaUsuario.validarUsuario(nomeUsuario);
 
+            //Instância da classe Usuario para a inserção dos dados do usuário para, posterior, ser inserida no banco de dados - na tabela de usuario.
             usuarioParaCadastrar = new Usuario(0, nome, emailUsuario, nomeUsuario, senha);
 
+            //Verifica se as validações estão corretas e retornam verdadeiro para que o processo de cadastro prossiga
             if (respostaValicaoNome == true) {
                 if (validacaoEmail == true) {
                     if (validaNomeUsuarioExistente == false) {
