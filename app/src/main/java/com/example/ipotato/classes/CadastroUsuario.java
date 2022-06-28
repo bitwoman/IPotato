@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +17,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ipotato.R;
+import com.example.ipotato.dao.UsuarioDAO;
+import com.example.ipotato.models.Usuario;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,6 +29,8 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
     NavController navController;
     EditText editTextNomeCompleto, editTextEmail, editTextNomeDeUsuario, editTextSenha, editTextConfirmarSenha;
     Button buttonRegistrar;
+    UsuarioDAO tabelaUsuario;
+    Usuario usuarioParaCadastrar;
 
     //Construtor
     public CadastroUsuario() {
@@ -50,6 +53,8 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        tabelaUsuario = new UsuarioDAO(getContext());
+
         navController = Navigation.findNavController(view);
 
         editTextNomeCompleto = view.findViewById(R.id.idEditTextNomeCadastro);
@@ -64,13 +69,18 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        validarCampos();
+        if(validarCampos() == true) {
+            tabelaUsuario.inserir(usuarioParaCadastrar);
+            navController.navigate(R.id.action_cadastroUsuario_to_iniciarPedido3);
+        }else{
+            Toast.makeText(getContext(), "CADASTRO NÃO REALIZADO!", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void validarCampos(){
-        if(editTextNomeCompleto.getText().toString().isEmpty() || editTextEmail.getText().toString().isEmpty() ||
+    public Boolean validarCampos() {
+        if (editTextNomeCompleto.getText().toString().isEmpty() || editTextEmail.getText().toString().isEmpty() ||
                 editTextNomeDeUsuario.getText().toString().isEmpty() || editTextSenha.getText().toString().isEmpty() ||
-                editTextConfirmarSenha.getText().toString().isEmpty()){
+                editTextConfirmarSenha.getText().toString().isEmpty()) {
 
             editTextNomeCompleto.setHint("Campo obrigatório!");
             editTextNomeCompleto.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
@@ -88,65 +98,78 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
             editTextConfirmarSenha.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
         } else {
             String nome = editTextNomeCompleto.getText().toString().trim();
-
-
-            //[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s] A-Za-z_
-            Pattern validacaoNome = Pattern.compile("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\\s]+");
-            Matcher matchNome = validacaoNome.matcher(nome);
-
-            boolean respostaValicaoNome = matchNome.matches();
-
-            Pattern patternEmail = Patterns.EMAIL_ADDRESS;
-            boolean validacaoEmail = patternEmail.matcher(editTextEmail.getText().toString().trim()).matches();
-
+            String emailUsuario = editTextEmail.getText().toString().trim();
+            String nomeUsuario = editTextNomeDeUsuario.getText().toString().trim();
             String senha = editTextSenha.getText().toString().trim();
             String senhaConfirmada = editTextConfirmarSenha.getText().toString().trim();
 
+            Pattern patternEmail = Patterns.EMAIL_ADDRESS;
+            Pattern validacaoNome = Pattern.compile("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\\s]+");
+
             Pattern validacaoSenha = Pattern.compile("^" +
-                                                    "(?=.*[0-9])" +         //at least 1 digit
-                                                    "(?=.*[a-z])" +         //at least 1 lower case letter
-                                                    "(?=.*[A-Z])" +         //at least 1 upper case letter
-                                                    "(?=.*[a-zA-Z])" +      //any letter
-                                                    "(?=.*[@#$%^!&+=])" +    //at least 1 special character
-                                                    "(?=\\S+$)" +           //no white spaces
-                                                    ".{8,}" +               //at least 8 characters
-                                                    "$");
+                    "(?=.*[0-9])" +         //at least 1 digit
+                    "(?=.*[a-z])" +         //at least 1 lower case letter
+                    "(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^!&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{8,}" +               //at least 8 characters
+                    "$");
+
+            Pattern validacaoSenhaConfirmada = Pattern.compile("^" +
+                    "(?=.*[0-9])" +         //at least 1 digit
+                    "(?=.*[a-z])" +         //at least 1 lower case letter
+                    "(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^!&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{8,}" +               //at least 8 characters
+                    "$");
+
             Matcher matchSenha = validacaoSenha.matcher(senha);
-            boolean respostaValicaoSenha = matchSenha.matches();
-
-            Pattern validacaoSenhaConfirmada =Pattern.compile("^" +
-                                                              "(?=.*[0-9])" +         //at least 1 digit
-                                                              "(?=.*[a-z])" +         //at least 1 lower case letter
-                                                              "(?=.*[A-Z])" +         //at least 1 upper case letter
-                                                              "(?=.*[a-zA-Z])" +      //any letter
-                                                              "(?=.*[@#$%^!&+=])" +    //at least 1 special character
-                                                              "(?=\\S+$)" +           //no white spaces
-                                                              ".{8,}" +               //at least 8 characters
-                                                              "$");
+            Matcher matchNome = validacaoNome.matcher(nome);
             Matcher matchSenhaConfirmada = validacaoSenhaConfirmada.matcher(senhaConfirmada);
-            boolean respostaValicaoSenhaConfirmada = matchSenhaConfirmada.matches();
 
-            if(respostaValicaoNome == true){
-                if(validacaoEmail == true){
-                    if(respostaValicaoSenha == true){
-                        if(respostaValicaoSenhaConfirmada == true){
-                            if (senha.equals(senhaConfirmada)){
-                                navController.navigate(R.id.action_cadastroUsuario_to_iniciarPedido3);
-                            }else{
-                                Toast.makeText(getContext(), "As senhas são diferentes!", Toast.LENGTH_SHORT).show();
+            boolean respostaValicaoNome = matchNome.matches();
+            boolean validacaoEmail = patternEmail.matcher(editTextEmail.getText().toString().trim()).matches();
+            boolean respostaValicaoSenha = matchSenha.matches();
+            boolean respostaValicaoSenhaConfirmada = matchSenhaConfirmada.matches();
+            boolean validaNomeUsuarioExistente = tabelaUsuario.validarUsuario(nomeUsuario);
+
+            usuarioParaCadastrar = new Usuario(0, nome, emailUsuario, nomeUsuario, senha);
+
+            if (respostaValicaoNome == true) {
+                if (validacaoEmail == true) {
+                    if (validaNomeUsuarioExistente == false) {
+                        if (respostaValicaoSenha == true) {
+                            if (respostaValicaoSenhaConfirmada == true) {
+                                if (senha.equals(senhaConfirmada)) {
+                                    return true;
+                                } else {
+                                    Toast.makeText(getContext(), "As senhas são diferentes!", Toast.LENGTH_SHORT).show();
+                                    return false;
+                                }
+                            } else {
+                                Toast.makeText(getContext(), "Senha fora de padrão!", Toast.LENGTH_SHORT).show();
+                                return false;
                             }
-                        }else{
+                        } else {
                             Toast.makeText(getContext(), "Senha fora de padrão!", Toast.LENGTH_SHORT).show();
+                            return false;
                         }
-                    } else{
-                        Toast.makeText(getContext(), "Senha fora de padrão!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "Nome de usuário já existe", Toast.LENGTH_SHORT).show();
+                        return false;
                     }
-                } else{
+                } else {
                     Toast.makeText(getContext(), "E-MAIL INCORRETO!", Toast.LENGTH_SHORT).show();
+                    return false;
                 }
-            }else{
+            } else {
                 Toast.makeText(getContext(), "Nome fora do padrão!", Toast.LENGTH_SHORT).show();
+                return false;
             }
         }
+        return false;
     }
 }
