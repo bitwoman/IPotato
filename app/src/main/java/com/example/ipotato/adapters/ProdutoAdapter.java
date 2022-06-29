@@ -82,7 +82,7 @@ public class ProdutoAdapter extends BaseAdapter implements View.OnClickListener 
         //Setar os atributos
         textViewNomeProdutoPromo.setText(produto.getNome());
         textViewPrecoProdutoPromo.setText((String.valueOf(produto.getPreco())));
-//        imageViewProdutoPromo.setImageBitmap(produto.getImagem());
+        imageViewProdutoPromo.setImageBitmap(produto.getImagem());
 
         //O adapter da lista -> Pega os dados de uma forma para serem exibidos de outro.
         return linhaProduto;
