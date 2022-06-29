@@ -18,7 +18,7 @@ public class UsuarioDAO extends SQLiteOpenHelper {
 
     //Nome do banco e versão
     public final static String NOME_BANCO = "db1";
-    public final static int VERSAO_BANCO = 1;
+    public final static int VERSAO_BANCO = 5;
 
     //Construtor
     public UsuarioDAO(@Nullable Context context) {

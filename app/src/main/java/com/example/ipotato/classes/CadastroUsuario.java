@@ -46,6 +46,7 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((DrawerLocker) requireActivity()).liberarMenu(true);
         return inflater.inflate(R.layout.fragment_cadastro_usuario, container, false);
     }
 
@@ -69,7 +70,7 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if(validarCampos() == true) {
+        if(this.validarCampos() == true) {
             tabelaUsuario.inserir(usuarioParaCadastrar);
             navController.navigate(R.id.action_cadastroUsuario_to_iniciarPedido3);
         }else{
@@ -96,7 +97,9 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
 
             editTextConfirmarSenha.setHint("Campo obrigatório!");
             editTextConfirmarSenha.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
-        } else {
+        }
+        // Se os campos NÃO ESTIVEREM vazios!
+        else {
             String nome = editTextNomeCompleto.getText().toString().trim();
             String emailUsuario = editTextEmail.getText().toString().trim();
             String nomeUsuario = editTextNomeDeUsuario.getText().toString().trim();
@@ -136,7 +139,6 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
             boolean respostaValicaoSenhaConfirmada = matchSenhaConfirmada.matches();
             boolean validaNomeUsuarioExistente = tabelaUsuario.validarUsuario(nomeUsuario);
 
-            usuarioParaCadastrar = new Usuario(0, nome, emailUsuario, nomeUsuario, senha);
 
             if (respostaValicaoNome == true) {
                 if (validacaoEmail == true) {
@@ -144,30 +146,25 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
                         if (respostaValicaoSenha == true) {
                             if (respostaValicaoSenhaConfirmada == true) {
                                 if (senha.equals(senhaConfirmada)) {
+                                    usuarioParaCadastrar = new Usuario(0, nome, emailUsuario, nomeUsuario, senha);
                                     return true;
                                 } else {
                                     Toast.makeText(getContext(), "As senhas são diferentes!", Toast.LENGTH_SHORT).show();
-                                    return false;
                                 }
                             } else {
                                 Toast.makeText(getContext(), "Senha fora de padrão!", Toast.LENGTH_SHORT).show();
-                                return false;
                             }
                         } else {
                             Toast.makeText(getContext(), "Senha fora de padrão!", Toast.LENGTH_SHORT).show();
-                            return false;
                         }
                     } else {
                         Toast.makeText(getContext(), "Nome de usuário já existe", Toast.LENGTH_SHORT).show();
-                        return false;
                     }
                 } else {
                     Toast.makeText(getContext(), "E-MAIL INCORRETO!", Toast.LENGTH_SHORT).show();
-                    return false;
                 }
             } else {
                 Toast.makeText(getContext(), "Nome fora do padrão!", Toast.LENGTH_SHORT).show();
-                return false;
             }
         }
         return false;
