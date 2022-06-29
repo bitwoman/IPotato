@@ -167,6 +167,6 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
                 Toast.makeText(getContext(), "Nome fora do padrão!", Toast.LENGTH_SHORT).show();
             }
         }
-        return false;
+        return true;
     }
 }
