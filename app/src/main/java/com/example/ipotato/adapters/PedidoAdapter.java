@@ -21,12 +21,11 @@ public class PedidoAdapter extends BaseAdapter implements NumberPicker.OnValueCh
     //Atributos
     private Context context;
     private List<Produto> dataset = new ArrayList<>();
-    ;
 
     //Construtor
-    public PedidoAdapter(Context context, List<Produto> dataset) {
-        this.context = context;
-        this.dataset = dataset;
+    public PedidoAdapter(Context ct, List<Produto> dt) {
+        this.context = ct;
+        this.dataset = dt;
     }
 
     //Retorna o tamanho de lista

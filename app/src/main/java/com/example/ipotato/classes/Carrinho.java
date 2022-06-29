@@ -23,8 +23,11 @@ import com.example.ipotato.R;
 import com.example.ipotato.adapters.PedidoAdapter;
 import com.example.ipotato.dao.PedidoDAO;
 import com.example.ipotato.models.Pedido;
+import com.example.ipotato.models.Pedidos;
 import com.example.ipotato.models.Produto;
 
+import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -71,7 +74,6 @@ public class Carrinho extends Fragment implements View.OnClickListener{
         final ListView listaDePedidos = (ListView) view.findViewById(R.id.idListViewContainerItensPageCarrinho); //idListViewPedidoFinal
         listaDePedidos.setAdapter(adaptador);
 
-
         radioGroupFormaPagamento = view.findViewById(R.id.idRadioGroupFormaPagamento);
         buttonFormaPgtoDinheiro = view.findViewById(R.id.idButtonFormaPgtoDinheiro);
         buttonFormaPgtoCredito = view.findViewById(R.id.idButtonFormaPgtoCredito);
@@ -82,7 +84,24 @@ public class Carrinho extends Fragment implements View.OnClickListener{
         textViewTotalPedido = view.findViewById(R.id.idTxtViewValorTotalPedido);
 
         buttonFecharPedido = view.findViewById(R.id.idButtonFecharPedido);
-        buttonFecharPedido.setOnClickListener(this);
+        buttonFecharPedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Pedidos pedidos = new Pedidos(adaptador);
+//                Iterator<Produto> iterator = pedidos.produtosNoPedido.iterator();
+//
+//                while (iterator.hasNext()){
+//                    if(iterator.next().getQuantidadeProduto() == 0){
+//                        iterator.remove();
+//                    }
+//                }
+
+//                Intent it = new Intent(view.getContext(), PedidoFinal.class);
+//                it.putExtra("pedido", (Serializable) pedidos);
+//                startActivity(it);
+//                listaDePedidos.setAdapter(adaptador);
+            }
+        });
     }
 
     @Override
