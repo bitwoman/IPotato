@@ -19,10 +19,12 @@ import com.example.ipotato.R;
 import com.example.ipotato.classes.GerenciarCardapio;
 import com.example.ipotato.dao.ProdutoDAO;
 import com.example.ipotato.models.Produto;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProdutoAdapter extends BaseAdapter implements View.OnClickListener {
+public class ProdutoAdapter extends BaseAdapter implements View.OnClickListener, Serializable {
 
     //Atributos
     private Context context;
