@@ -57,56 +57,18 @@ public class IniciarPedido extends Fragment implements View.OnClickListener {
         //Instância do Navigation Controller, é responsável pelo gerenciamento das tramitações entre os fragmentos
         navController = Navigation.findNavController(view);
 
-//        drawerLayout = view.findViewById(R.id.drawer_layout);
-//        navigationView = view.findViewById(R.id.nav_drawer);
-//        navigationView.setNavigationItemSelectedListener(this);
-//
         buttonIniciarPedido = view.findViewById(R.id.idButtonIniciarPedido);
         buttonIniciarPedido.setOnClickListener(this);
-
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.cardapio).build();
-//
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//               getParentFragment().getActivity(),
-//               drawerLayout,
-//               R.string.open,
-//               R.string.close
-//        );
-//
-//        drawerLayout.addDrawerListener(toggle);
-//        toggle.syncState();
     }
 
     //Evento de clique "padrão" da página de Iniciar Pedido
     @Override
     public void onClick(View view) {
-//        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
-        navController.navigate(R.id.action_iniciarPedido3_to_cadastroProduto);
+        getParentFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainerView, Cardapio.class, null)
+                .commit();
     }
-
-    //Evento de clique dos botões presentes no menu do Navigation Drawer
-    /*@Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.idButtonNovoPedido:
-                navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
-                break;
-            case R.id.idButtonHistorico:
-                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.idButtonGerenciarGardapio:
-                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.idButtonSair:
-                Toast.makeText(getContext(), "Teste filha da puta", Toast.LENGTH_SHORT).show();
-//                finish();
-                break;
-        }
-
-        drawerLayout.closeDrawer(GravityCompat.START);
-
-        return true;
-    }*/
 
 //    Recriei o método de finish, pois o mesmo não é aceito no switch dentro do onNavigationItemSelected
     public void finish(){

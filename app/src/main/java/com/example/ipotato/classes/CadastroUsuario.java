@@ -46,6 +46,7 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((DrawerLocker) requireActivity()).liberarMenu(true);
         return inflater.inflate(R.layout.fragment_cadastro_usuario, container, false);
     }
 
@@ -70,7 +71,7 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
     //Método do evento de click de botões padrões na tela (cadastrar usuario)
     @Override
     public void onClick(View view) {
-        if(validarCampos() == true) {
+        if(this.validarCampos() == true) {
             tabelaUsuario.inserir(usuarioParaCadastrar);
             navController.navigate(R.id.action_cadastroUsuario_to_iniciarPedido3);
         }else{
@@ -101,7 +102,9 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
 
             editTextConfirmarSenha.setHint("Campo obrigatório!");
             editTextConfirmarSenha.setHintTextColor(this.getResources().getColor(R.color.vermelho_hint_edittext_verificacao));
-        } else {
+        }
+        // Se os campos NÃO ESTIVEREM vazios!
+        else {
             Pattern patternEmail = Patterns.EMAIL_ADDRESS;
             Pattern validacaoNome = Pattern.compile("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\\s]+");
 
@@ -171,6 +174,6 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
                 return false;
             }
         }
-        return false;
+        return true;
     }
 }
