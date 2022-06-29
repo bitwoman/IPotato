@@ -66,15 +66,15 @@ public class ProdutoAdapter extends BaseAdapter implements View.OnClickListener 
         //Acesar imgView, e txt's
 
         //Inflando os tópicos do produto
-        textViewNomeProdutoPromo = view.findViewById(R.id.idTxtViewNomeProdutoPromo);
-        textViewPrecoProdutoPromo = view.findViewById(R.id.idTxtViewPrecoProdutoPromo);
+        textViewNomeProdutoPromo = view.findViewById(R.id.idTxtNomeProduto);
+        textViewPrecoProdutoPromo = view.findViewById(R.id.idTxtPreco);
 
-        imageViewProdutoPromo = view.findViewById(R.id.idImagemProdutoPromo);
+//        imageViewProdutoPromo = view.findViewById(R.id.idImagemProdutoPromo);
 
         buttonRemoverQtdeItem = view.findViewById(R.id.idButtonRemoverQtdeItem);
         buttonAdicionarQtdeItem = view.findViewById(R.id.idButtonAdicionarQtdeItem);
-        buttonEditarProduto = view.findViewById(R.id.idButtonEditarProduto);
-        buttonExcluirProduto = view.findViewById(R.id.idButtonExcluirProduto);
+//        buttonEditarProduto = view.findViewById(R.id.idButtonEditarProduto);
+//        buttonExcluirProduto = view.findViewById(R.id.idButtonExcluirProduto);
 
         //Pra setar os atributos do produto específico, de acordo com o seu id
         produto = dataset.get(i);

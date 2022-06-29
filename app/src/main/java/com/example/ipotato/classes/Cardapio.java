@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -53,24 +54,30 @@ public class Cardapio extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-//        View view = inflater.inflate(R.layout.fragment_gerenciar_cardapio, container, false);
+        View view = inflater.inflate(R.layout.fragment_item_batata, container, false);
+
+        tabelaProduto = new ProdutoDAO(getContext());
+
+        listViewProdutos = (ListView) view.findViewById(R.id.idListaContainerDeProdutos);
+        listaDeProdutos = tabelaProduto.produtosMockados();
+        ProdutoAdapter adap = new ProdutoAdapter(getContext(), listaDeProdutos);
+
+        listViewProdutos.setAdapter(adap);
 //
-//        return view;
-        return inflater.inflate(R.layout.fragment_cardapio, container, false);
+        return view;
+//        return inflater.inflate(R.layout.fragment_cardapio, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Toast.makeText(getContext(), "Estou no cardápio", Toast.LENGTH_SHORT).show();
         super.onViewCreated(view, savedInstanceState);
-        tabelaProduto = new ProdutoDAO(getContext());
-
-        listViewProdutos = view.findViewById(R.id.idListaContainerDeProdutos);
-        listaDeProdutos = tabelaProduto.getAllProducts();
-        ArrayAdapter<Produto> adap = new ArrayAdapter<Produto>(getContext(), R.layout.fragment_gerenciar_cardapio);
-
-        listViewProdutos.setAdapter(adap);
-//        ProdutoAdapter adaptador = new ProdutoAdapter(getContext(), listaDeProdutos); //ele vai puxar os produtos por conta do método estático.
-//        listViewProdutos.setAdapter(adaptador);
+//        tabelaProduto = new ProdutoDAO(getContext());
+//
+//        listViewProdutos = (ListView) view.findViewById(R.id.idListaContainerDeProdutos);
+//        listaDeProdutos = tabelaProduto.produtosMockados();
+//        ProdutoAdapter adap = new ProdutoAdapter(getContext(), listaDeProdutos);
+//
+//        listViewProdutos.setAdapter(adap);
     }
 }

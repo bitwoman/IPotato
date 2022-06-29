@@ -162,4 +162,20 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
         return listProduto;
     }
+
+    public List<String> nomesProdutosMockados() {
+        List<String> listProduto = new ArrayList<String>();
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        listProduto.add("sashimi");
+        return listProduto;
+    }
 }
