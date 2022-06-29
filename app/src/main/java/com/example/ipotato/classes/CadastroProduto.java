@@ -58,7 +58,7 @@ public class CadastroProduto extends Fragment implements View.OnClickListener{
 
         tabelaProduto = new ProdutoDAO(getContext());
 
-        navController = Navigation.findNavController(view);
+        navController = Navigation.findNavController(view); //Alterar
 
         editTextNomeProdutoCadastro = view.findViewById(R.id.idEditTextNomeProdutoCadastro);
         editTextDescricaoProdutoCadastro = view.findViewById(R.id.idEditTextDescricaoProdutoCadastro);

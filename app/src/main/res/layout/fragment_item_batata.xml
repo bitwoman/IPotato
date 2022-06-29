@@ -6,63 +6,75 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/idImageViewItemBatata"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:layout_gravity="center_vertical"
+        android:layout_marginTop="2dp"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"
-        android:contentDescription="@string/content_description_imageview_produto"
-        tools:ignore="ImageContrastCheck"
-        tools:srcCompat="@tools:sample/avatars"
-        tools:src="@tools:sample/avatars" />
+        android:layout_marginBottom="2dp">
 
-    <TextView
-        android:id="@+id/idTxtNomeProduto"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="3"
-        android:layout_marginEnd="2dp"
-        android:text="@string/txt_nome_produto"
-        android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/idImageViewItemBatata"
+            android:layout_width="12dp"
+            android:layout_height="150dp"
+            android:layout_weight="3"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:contentDescription="@string/content_description_imageview_produto"
+            android:scaleType="fitXY"
+            tools:ignore="ImageContrastCheck"
+            tools:srcCompat="@tools:sample/avatars"
+            tools:src="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/idTxtPreco"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="2dp"
-        android:layout_weight="2"
-        android:text="@string/txt_preco_produto" />
+        <TextView
+            android:id="@+id/idTxtNomeProduto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:layout_marginEnd="2dp"
+            android:text="@string/txt_nome_produto"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/idButtonRemoverQtdeItem"
-        android:layout_width="10dp"
-        android:layout_height="35dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="2dp"
-        android:layout_weight="0.5"
-        android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
-        android:padding="1dp"
-        android:text="@string/txt_button_remover_qtde_item"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        tools:ignore="TouchTargetSizeCheck,TextContrastCheck"/>
+        <TextView
+            android:id="@+id/idTxtPreco"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="2"
+            android:text="@string/txt_preco_produto"
+            android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/idButtonAdicionarQtdeItem"
-        android:layout_width="10dp"
-        android:layout_height="35dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="2dp"
-        android:layout_weight="0.5"
-        android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
-        android:padding="1dp"
-        android:text="@string/txt_button_adicionar_qtde_item"
-        android:textColor="@color/black"
-        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+        <Button
+            android:id="@+id/idButtonRemoverQtdeItem"
+            android:layout_width="10dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
+            android:padding="1dp"
+            android:text="@string/txt_button_remover_qtde_item"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck"/>
+
+        <Button
+            android:id="@+id/idButtonAdicionarQtdeItem"
+            android:layout_width="10dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
+            android:padding="1dp"
+            android:text="@string/txt_button_adicionar_qtde_item"
+            android:textColor="@color/black"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+    </LinearLayout>
 
 </LinearLayout>
