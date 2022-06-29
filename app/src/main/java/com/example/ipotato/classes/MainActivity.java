@@ -23,10 +23,9 @@ import com.example.ipotato.dao.ProdutoDAO;
 import com.example.ipotato.dao.UsuarioDAO;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements
-        NavigationView.OnNavigationItemSelectedListener,
-        DrawerLocker {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
 
+    //Atributos
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;

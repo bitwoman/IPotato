@@ -17,7 +17,7 @@ import java.util.List;
 public class ProdutoDAO extends SQLiteOpenHelper {
 
     //Nome do banco e versão
-    public final static String NOME_BANCO = "bd1";
+    public final static String NOME_BANCO = "ipotato";
     public final static int VERSAO_BANCO = 1;
 
     //Construtor
@@ -30,6 +30,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE produto(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nome TEXT, " +
+                "descricao TEXT, " +
                 "imagem BLOB, " +
                 "preco REAL, " +
                 "desconto REAL);");
@@ -52,6 +53,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         // respectivas colunas da tabela no banco
         ContentValues insere_valor = new ContentValues();
         insere_valor.put("nome", p.getNome());
+        insere_valor.put("descricao", p.getDescricao());
         insere_valor.put("preco", p.getPreco());
         insere_valor.put("desconto", p.getDesconto());
 
@@ -70,6 +72,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 //        content.put("_id", id);
         //nome das minhas colunas / get da minha classe Produto
         content.put("nome", p.getNome());
+        content.put("descricao", p.getDescricao());
         content.put("preco", p.getPreco());
         content.put("desconto", p.getDesconto());
 
@@ -111,10 +114,11 @@ public class ProdutoDAO extends SQLiteOpenHelper {
                 //o getColumnIndexOrThrow está pedindo para eu puxar o valor ou abrir uma exceção na coluna chamada "_id"
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow("_id"));
                 String nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
+                String descricao = cursor.getString(cursor.getColumnIndexOrThrow("descricao"));
                 double preco = cursor.getDouble(cursor.getColumnIndexOrThrow("preco"));
                 double desconto = cursor.getDouble(cursor.getColumnIndexOrThrow("desconto"));
                 Produto p = new Produto(
-                        id, nome, preco, desconto
+                        id, nome, descricao, preco, desconto
                 );
                 listP.add(p);
 //                Log.i("Registro: ", id + "" + nome + "" + preco);
@@ -131,6 +135,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         Produto pr = new Produto(
                 0,
                 "Ana",
+                "Vendendo a Anaju",
                 100,
                 10
         );

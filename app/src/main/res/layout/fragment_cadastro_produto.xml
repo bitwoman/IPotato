@@ -15,18 +15,18 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_text_layout"
             android:ems="10"
             android:hint="@string/txt_nome_do_produto"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="10dip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TextContrastCheck"
-            android:importantForAutofill="no" />
+            tools:ignore="TextContrastCheck" />
 
         <EditText
             android:id="@+id/idEditTextDescricaoProdutoCadastro"
@@ -75,10 +75,10 @@
             app:layout_constraintTop_toTopOf="@+id/idEditTextPrecoProdutoCadastro" />
 
         <ImageView
-            android:id="@+id/idButtonCadastrarImagemProduto"
+            android:id="@+id/idButtonCadastrarImagemProdutoCadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idEditTextPrecoProdutoCadastro"
@@ -96,14 +96,14 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idButtonCadastrarImagemProduto" />
+            app:layout_constraintTop_toBottomOf="@+id/idButtonCadastrarImagemProdutoCadastro" />
 
         <Button
             android:id="@+id/idButtonCadastrarProduto"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/vermelho_botão_cadastrar_produto"
             android:text="Cadastrar"
