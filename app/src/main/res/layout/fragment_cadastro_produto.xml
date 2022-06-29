@@ -74,7 +74,8 @@
             android:padding="10dip"
             app:layout_constraintStart_toEndOf="@+id/idEditTextPrecoProdutoCadastro"
             app:layout_constraintTop_toTopOf="@+id/idEditTextPrecoProdutoCadastro"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <ImageView
             android:id="@+id/idButtonCadastrarImagemProdutoCadastro"
