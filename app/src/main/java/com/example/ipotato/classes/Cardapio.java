@@ -26,6 +26,8 @@ import com.example.ipotato.dao.ProdutoDAO;
 import com.example.ipotato.models.Produto;
 
 import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 
 public class Cardapio extends Fragment {
 
@@ -33,8 +35,9 @@ public class Cardapio extends Fragment {
     private RecyclerView rcView;
 
     //Atributos
-    private RecyclerView listaProdutosEmPromo;
-    private ListView lvLista;
+    ListView listViewProdutos;
+    List<Produto> listaDeProdutos;
+    ProdutoDAO tabelaProduto;
 
     //Construtor
     public Cardapio() {
@@ -67,7 +70,12 @@ public class Cardapio extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Toast.makeText(getContext(), "Estou no cardápio", Toast.LENGTH_SHORT).show();
         super.onViewCreated(view, savedInstanceState);
+        tabelaProduto = new ProdutoDAO(getContext());
 
+        listViewProdutos = view.findViewById(R.id.idListaContainerDeProdutos);
+        listaDeProdutos = tabelaProduto.getAllProducts();
 
+        ProdutoAdapter adaptador = new ProdutoAdapter(getContext(), listaDeProdutos); //ele vai puxar os produtos por conta do método estático.
+        listViewProdutos.setAdapter(adaptador);
     }
 }

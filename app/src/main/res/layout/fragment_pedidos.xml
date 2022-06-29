@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context=".models.Pedidos">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:layout_marginBottom="2dp">
 
         <ImageView
-            android:id="@+id/idImageViewItemBatata"
+            android:id="@+id/idImageViewItemBatataPedidos"
             android:layout_width="12dp"
             android:layout_height="150dp"
             android:layout_weight="3"
@@ -29,7 +29,7 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/idTxtNomeProduto"
+            android:id="@+id/idTxtNomeProdutoPedidos"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -40,7 +40,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/idTxtPreco"
+            android:id="@+id/idTxtPrecoPedidos"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -49,32 +49,14 @@
             android:text="@string/txt_preco_produto"
             android:textColor="@color/black"/>
 
-        <Button
-            android:id="@+id/idButtonRemoverQtdeItem"
-            android:layout_width="10dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="2dp"
-            android:layout_weight="0.5"
-            android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
-            android:padding="1dp"
-            android:text="@string/txt_button_remover_qtde_item"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck"/>
-
-        <Button
-            android:id="@+id/idButtonAdicionarQtdeItem"
-            android:layout_width="10dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="2dp"
-            android:layout_weight="0.5"
-            android:backgroundTint="@color/amarelo_botao_adicionar_qtde_item"
-            android:padding="1dp"
-            android:text="@string/txt_button_adicionar_qtde_item"
-            android:textColor="@color/black"
-            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+        <!-- NumberPicker: idNumberPickerQuantidadeItem-->
+        <NumberPicker
+            android:id="@+id/idNPQtdeProdutoNoCarrinhoPedidos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical" />
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
+

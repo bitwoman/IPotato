@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_iniciarPedido3_to_cadastroProduto"
             app:destination="@id/cadastroProduto" />
+        <action
+            android:id="@+id/action_iniciarPedido3_to_cardapio2"
+            app:destination="@id/cardapio" />
     </fragment>
     <fragment
         android:id="@+id/cardapio"
@@ -65,7 +68,11 @@
         android:id="@+id/gerenciarCardapio"
         android:name="com.example.ipotato.classes.GerenciarCardapio"
         android:label="fragment_gerenciar_cardapio"
-        tools:layout="@layout/fragment_gerenciar_cardapio" />
+        tools:layout="@layout/fragment_gerenciar_cardapio" >
+        <action
+            android:id="@+id/action_gerenciarCardapio_to_cadastroProduto"
+            app:destination="@id/cadastroProduto" />
+    </fragment>
     <fragment
         android:id="@+id/historicoDePedidos"
         android:name="com.example.ipotato.classes.HistoricoDePedidos"

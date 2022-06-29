@@ -100,7 +100,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 
         //Criando um cursor que vai executar uma Query no meu banco, nessa Query eu passo como parametro a
         // tabela a qual vou mexer e os campos que eu quero exibir na listagem
-        Cursor cursor = db.query("Produto", new String[] {"_id","nome"},
+        Cursor cursor = db.query("Produto", new String[] {"_id","nome", "descricao","preco", "desconto"},
                 null,
                 null,
                 null,
@@ -117,17 +117,17 @@ public class ProdutoDAO extends SQLiteOpenHelper {
                 String descricao = cursor.getString(cursor.getColumnIndexOrThrow("descricao"));
                 double preco = cursor.getDouble(cursor.getColumnIndexOrThrow("preco"));
                 double desconto = cursor.getDouble(cursor.getColumnIndexOrThrow("desconto"));
-                Produto p = new Produto(
-                        id, nome, descricao, preco, desconto
-                );
+
+                Produto p = new Produto(id, nome, descricao, preco, desconto);
                 listP.add(p);
+
 //                Log.i("Registro: ", id + "" + nome + "" + preco);
             //Enquanto meu cursor se mover para o registro seguinte:
             } while (cursor.moveToNext());
+            //Fecho o cursor e o banco
+            cursor.close();
         }
-        //Fecho o cursor e o banco
-        cursor.close();
-        db.close();
+//        db.close();
         return listP;
     }
 

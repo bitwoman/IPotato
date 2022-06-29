@@ -55,7 +55,7 @@ public class IniciarPedido extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         //Instância do Navigation Controller, é responsável pelo gerenciamento das tramitações entre os fragmentos
-        navController = Navigation.findNavController(view);
+        navController = Navigation.findNavController(view); //alterar
 
         buttonIniciarPedido = view.findViewById(R.id.idButtonIniciarPedido);
         buttonIniciarPedido.setOnClickListener(this);
