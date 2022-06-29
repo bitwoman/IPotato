@@ -77,7 +77,12 @@ public class CadastroProduto extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         if(validarCadastroProduto() == true) {
             tabelaProduto.inserir(produtoParaCadastrar);
-            navController.navigate(R.id.action_cadastroProduto_to_cardapio);
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.idFragmentContainerView, Cardapio.class, null)
+                    .commit();
+//            getSupportFragmentManager().beginTransaction().replace(R.id.idFragmentContainerView, Cardapio.class, null).commit();
+//            navController.navigate(R.id.action_cadastroProduto_to_cardapio);
         }else{
             Toast.makeText(getContext(), "CADASTRO NÃO REALIZADO!", Toast.LENGTH_SHORT).show();
         }
@@ -117,7 +122,7 @@ public class CadastroProduto extends Fragment implements View.OnClickListener{
             double descontoProdutoDouble = Double.parseDouble (descontoProduto);
 
             //Instância da classe Produto para a inserção dos dados do produto para, posterior, ser inserida no banco de dados - na tabela de produto.
-            produtoParaCadastrar = new Produto(0, nomeProduto,descricaoProduto, precoProdutoDouble, descontoProdutoDouble);
+            produtoParaCadastrar = new Produto(0, nomeProduto,descricaoProduto, precoProdutoDouble, descontoProdutoDouble, 0);
 
             //Verifica se as validações estão corretas e retornam verdadeiro para que o processo de cadastro prossiga
             if(respostaValicaoPreco == true){

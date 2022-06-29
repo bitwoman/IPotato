@@ -17,12 +17,25 @@ import java.util.List;
 public class UsuarioDAO extends SQLiteOpenHelper {
 
     //Nome do banco e versão
-    public final static String NOME_BANCO = "db1";
+    public final static String NOME_BANCO = "ipotato";
     public final static int VERSAO_BANCO = 5;
 
     //Construtor
     public UsuarioDAO(@Nullable Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
+        validarTabela();
+    }
+
+    public void validarTabela(){
+        //Criando variável do tipo SQLiteDatabase e chamando o método getWritableDatabase(), funciona para alterações e não somente leitura
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS usuario (" +
+                "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "nome TEXT, " +
+                "email TEXT, " +
+                "username TEXT, " +
+                "pass TEXT);");
     }
 
     //On create para executar o SQL que vai criar as tabelas do banco e as colunas.

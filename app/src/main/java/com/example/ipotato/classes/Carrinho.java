@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-public class Carrinho extends Fragment implements View.OnClickListener{
+public class Carrinho extends Fragment {
 
     //Atributos
     RadioGroup radioGroupFormaPagamento;
@@ -65,14 +65,10 @@ public class Carrinho extends Fragment implements View.OnClickListener{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        tabelaPedido = new PedidoDAO(getContext());
-
         Intent it = new Intent(getContext(), Carrinho.class);
         listaDeBatatas = (List<Produto>) it.getSerializableExtra("PedidosProdutos");
 
-        final PedidoAdapter adaptador = new PedidoAdapter(getContext(), listaDeBatatas);
-        final ListView listaDePedidos = (ListView) view.findViewById(R.id.idListViewContainerItensPageCarrinho); //idListViewPedidoFinal
-        listaDePedidos.setAdapter(adaptador);
+        tabelaPedido = new PedidoDAO(getContext());
 
         radioGroupFormaPagamento = view.findViewById(R.id.idRadioGroupFormaPagamento);
         buttonFormaPgtoDinheiro = view.findViewById(R.id.idButtonFormaPgtoDinheiro);
@@ -83,30 +79,30 @@ public class Carrinho extends Fragment implements View.OnClickListener{
 
         textViewTotalPedido = view.findViewById(R.id.idTxtViewValorTotalPedido);
 
+
+        final PedidoAdapter adaptador = new PedidoAdapter(getContext(), listaDeBatatas);
+        final ListView listaDePedidos = (ListView) view.findViewById(R.id.idListViewContainerItensPageCarrinho); //idListViewPedidoFinal
+        listaDePedidos.setAdapter(adaptador);
+
         buttonFecharPedido = view.findViewById(R.id.idButtonFecharPedido);
         buttonFecharPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Pedidos pedidos = new Pedidos(adaptador);
-//                Iterator<Produto> iterator = pedidos.produtosNoPedido.iterator();
-//
-//                while (iterator.hasNext()){
-//                    if(iterator.next().getQuantidadeProduto() == 0){
-//                        iterator.remove();
-//                    }
-//                }
+                Pedidos pedidos = new Pedidos(adaptador.produto);
+                Iterator<Produto> iterator = pedidos.produtosNoPedido.iterator();
 
-//                Intent it = new Intent(view.getContext(), PedidoFinal.class);
-//                it.putExtra("pedido", (Serializable) pedidos);
-//                startActivity(it);
-//                listaDePedidos.setAdapter(adaptador);
+                while (iterator.hasNext()){
+                    if(iterator.next().getQuantidadeProduto() == 0){
+                        iterator.remove();
+                    }
+                }
+
+                Intent it = new Intent(view.getContext(), CompraFinalizada.class);
+                it.putExtra("pedido", (Serializable) pedidos);
+                startActivity(it);
+                listaDePedidos.setAdapter(adaptador);
             }
         });
-    }
-
-    @Override
-    public void onClick(View view) {
-
     }
 
     //Validação do radioButton

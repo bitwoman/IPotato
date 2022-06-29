@@ -3,12 +3,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CompraFinalizada">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".classes.CompraFinalizada">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- ListView responsável por listar na tela os itens que foram comprados pelo usuário -->
+    <ListView
+        android:id="@+id/idListViewContainerItensComprados"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </ListView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/idLayoutFecharPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <View
+            android:id="@+id/idDividerZeroCompraFinal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/idTxtViewValorTotalPedidoFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_total"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/idTxtViewQtdeProdutos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qtde Produtos"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/idDividerUmCompraFinal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:backgroundTint="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtViewValorTotalPedidoFinal" />
+
+        <!-- Arrumar a string no xml - criar a variável específica com esse texto -->
+        <TextView
+            android:id="@+id/idTxtLabelFormaPagamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_forma_de_pagamento"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idDividerUmCompraFinal" />
+
+        <TextView
+            android:id="@+id/idTxtRetornoFormaPgto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forma Pagamento"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtLabelFormaPagamento"></TextView>
+
+        <View
+            android:id="@+id/idDividerDois"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtRetornoFormaPgto" />
+
+        <TextView
+            android:id="@+id/idTxtViewEnderecoEntrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/txt_enderecoDeEntrega"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idDividerDois" />
+
+        <TextView
+            android:id="@+id/idTxtViewRetornoEnderecoEntrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Endereço Entrega"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTxtViewEnderecoEntrega" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

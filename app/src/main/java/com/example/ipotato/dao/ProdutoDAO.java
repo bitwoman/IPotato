@@ -18,22 +18,38 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 
     //Nome do banco e versão
     public final static String NOME_BANCO = "ipotato";
-    public final static int VERSAO_BANCO = 1;
+    public final static int VERSAO_BANCO = 5;
 
     //Construtor
     public ProdutoDAO(@Nullable Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
+         validarTabela();
+    }
+
+    public void validarTabela(){
+        //Criando variável do tipo SQLiteDatabase e chamando o método getWritableDatabase(), funciona para alterações e não somente leitura
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS produto(" +
+                "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "nome TEXT, " +
+                "descricao TEXT, "+
+                "preco REAL, " +
+                "desconto REAL, " +
+                "quantidade INTEGER);");
     }
 
     //On create para executar o SQL que vai criar as tabelas do banco e as colunas.
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE produto(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        //, imagem BLOB
+        sqLiteDatabase.execSQL("CREATE TABLE produto(" +
+                "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nome TEXT, " +
-                "descricao TEXT, " +
-                "imagem BLOB, " +
+                "descricao TEXT, "+
                 "preco REAL, " +
-                "desconto REAL);");
+                "desconto REAL, " +
+                 "quantidade INTEGER);");
     }
 
     //função de atualização do banco caso já exista uma tabela com o nome duplicado
@@ -53,9 +69,11 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         // respectivas colunas da tabela no banco
         ContentValues insere_valor = new ContentValues();
         insere_valor.put("nome", p.getNome());
+//        insere_valor.put("imagem", p.getImagem());
         insere_valor.put("descricao", p.getDescricao());
         insere_valor.put("preco", p.getPreco());
         insere_valor.put("desconto", p.getDesconto());
+        insere_valor.put("quantidade", p.getQuantidadeProduto());
 
         //Chamando minha variavel db e passando a função de inserção no banco, colocando o nome da tabela e passando os valores
         // coletados através do insere_valores
@@ -72,13 +90,15 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 //        content.put("_id", id);
         //nome das minhas colunas / get da minha classe Produto
         content.put("nome", p.getNome());
+        //        insere_valor.put("imagem", p.getImagem());
         content.put("descricao", p.getDescricao());
         content.put("preco", p.getPreco());
         content.put("desconto", p.getDesconto());
+        content.put("quantidade", p.getQuantidadeProduto());
 
                                                      //id = vai ser o id que eu to passando por parametro, no caso o id do usuario que
                                                     //esta atualizando
-        db.update("Produto", content,"_id=?", new String[]{id});
+        db.update("produto", content,"_id=?", new String[]{id});
 
         //encerrando a conexão com o banco
         db.close();
@@ -89,46 +109,38 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         //Chamando a função de delete, passando a tabela que eu vou mexer e o id do usuário que eu quero deletar
-        db.delete("Produto", "_id=?", new String[]{id});
+        db.delete("produto", "_id=?", new String[]{id});
 
         db.close();
     }
 
     //Função de listagem de registros no banco
     public List<Produto> getAllProducts(){
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase database = getReadableDatabase();
 
-        //Criando um cursor que vai executar uma Query no meu banco, nessa Query eu passo como parametro a
-        // tabela a qual vou mexer e os campos que eu quero exibir na listagem
-        Cursor cursor = db.query("Produto", new String[] {"_id","nome", "descricao","preco", "desconto"},
-                null,
-                null,
-                null,
-                null,
-                null);
+        List<Produto> listaProdutos= new ArrayList<Produto>();
 
-        //Se meu cursor acessar o primeiro registro:
-        List<Produto> listP = new ArrayList<>();
-        if(cursor.moveToFirst()){
+        String[] colunasDatabase = new String[]{"_id","nome", "descricao","preco", "desconto", "quantidade"};
+        Cursor cursor = database.query("produto", colunasDatabase,null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
             do {
-                //o getColumnIndexOrThrow está pedindo para eu puxar o valor ou abrir uma exceção na coluna chamada "_id"
-                long id = cursor.getLong(cursor.getColumnIndexOrThrow("_id"));
-                String nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
-                String descricao = cursor.getString(cursor.getColumnIndexOrThrow("descricao"));
-                double preco = cursor.getDouble(cursor.getColumnIndexOrThrow("preco"));
-                double desconto = cursor.getDouble(cursor.getColumnIndexOrThrow("desconto"));
+//                byte[] converterValor = cursor.getBlob(cursor.getColumnIndexOrThrow("iconeContato"));
+//                Bitmap imagemBitmap = BitmapFactory.decodeByteArray(converterValor, 0, converterValor.length);
 
-                Produto p = new Produto(id, nome, descricao, preco, desconto);
-                listP.add(p);
-
-//                Log.i("Registro: ", id + "" + nome + "" + preco);
-            //Enquanto meu cursor se mover para o registro seguinte:
+                Produto produto = new Produto(
+                        cursor.getInt(cursor.getColumnIndexOrThrow("_id")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("nome")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("descricao")),
+                        cursor.getDouble(cursor.getColumnIndexOrThrow("preco")),
+                        cursor.getDouble(cursor.getColumnIndexOrThrow("desconto")),
+                        cursor.getInt(cursor.getColumnIndexOrThrow("quantidade"))
+                );
+                listaProdutos.add(produto);
             } while (cursor.moveToNext());
-            //Fecho o cursor e o banco
             cursor.close();
         }
-//        db.close();
-        return listP;
+        return listaProdutos;
     }
 
     public void popularBD(){
@@ -137,7 +149,8 @@ public class ProdutoDAO extends SQLiteOpenHelper {
                 "Ana",
                 "Vendendo a Anaju",
                 100,
-                10
+                10,
+                1
         );
         this.inserir(pr);
     }

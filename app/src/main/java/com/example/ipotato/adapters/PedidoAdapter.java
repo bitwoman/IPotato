@@ -20,24 +20,24 @@ public class PedidoAdapter extends BaseAdapter implements NumberPicker.OnValueCh
 
     //Atributos
     private Context context;
-    private List<Produto> dataset = new ArrayList<>();
+    public List<Produto> produto = new ArrayList<>();
 
     //Construtor
     public PedidoAdapter(Context ct, List<Produto> dt) {
         this.context = ct;
-        this.dataset = dt;
+        this.produto = dt;
     }
 
     //Retorna o tamanho de lista
     @Override
     public int getCount() {
-        return dataset.size();
+        return produto.size();
     }
 
     //Pegar o item (produto) da lista daquela linha. objeto na posicao i
     @Override
     public Object getItem(int i) {
-        return dataset.get(i);
+        return produto.get(i);
     }
 
     //Pegar o id desse item (produto) da lista
@@ -51,27 +51,27 @@ public class PedidoAdapter extends BaseAdapter implements NumberPicker.OnValueCh
         LayoutInflater inflater = LayoutInflater.from(context);
         View linhaPedidoAdaptador = inflater.inflate(R.layout.fragment_pedidos, viewGroup, false);
 
-        ImageView imagemProduto = (ImageView) linhaPedidoAdaptador.findViewById(R.id.idImageViewItemBatataPedidos);
+//        ImageView imagemProduto = (ImageView) linhaPedidoAdaptador.findViewById(R.id.idImageViewItemBatataPedidos);
         TextView txtNomeProduto = (TextView) linhaPedidoAdaptador.findViewById(R.id.idTxtNomeProdutoPedidos);
         TextView txtPrecoProduto = (TextView) linhaPedidoAdaptador.findViewById(R.id.idTxtPrecoPedidos);
-        final NumberPicker quantidadeGame = (NumberPicker) linhaPedidoAdaptador.findViewById(R.id.idNPQtdeProdutoNoCarrinhoPedidos);
+        final NumberPicker quantidadeProduto = (NumberPicker) linhaPedidoAdaptador.findViewById(R.id.idNPQtdeProdutoNoCarrinhoPedidos);
 
-        final Produto produto = dataset.get(i);
+        final Produto itemProduto = produto.get(i);
 
-//        imagemProduto.setImageResource(produto.getImagem());
-        txtNomeProduto.setText(produto.getNome());
-        txtPrecoProduto.setText("R$ " + String.format("%.2f", produto.getPreco()).replace(".", ","));
+//        imagemProduto.setImageResource(itemProduto.getImagem());
+        txtNomeProduto.setText(itemProduto.getNome());
+        txtPrecoProduto.setText("R$ " + String.format("%.2f", itemProduto.getPreco()).replace(".", ","));
 
-        quantidadeGame.setMaxValue(10);
-        quantidadeGame.setMinValue(0);
-        quantidadeGame.setValue(produto.getQuantidadeProduto());
+        quantidadeProduto.setMaxValue(10);
+        quantidadeProduto.setMinValue(0);
+        quantidadeProduto.setValue(itemProduto.getQuantidadeProduto());
 
-        quantidadeGame.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        quantidadeProduto.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                int valuePicker = quantidadeGame.getValue();
+                int valuePicker = quantidadeProduto.getValue();
 
-                produto.setQuantidadeProduto(quantidadeGame.getValue());
+                itemProduto.setQuantidadeProduto(quantidadeProduto.getValue());
             }
         });
         return linhaPedidoAdaptador;

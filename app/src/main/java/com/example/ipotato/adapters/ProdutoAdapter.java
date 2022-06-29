@@ -27,9 +27,6 @@ public class ProdutoAdapter extends BaseAdapter implements View.OnClickListener 
     //Atributos
     private Context context;
     private List<Produto> dataset;
-    private Button buttonRemoverQtdeItem, buttonAdicionarQtdeItem, buttonEditarProduto, buttonExcluirProduto;
-    TextView textViewNomeProdutoPromo, textViewPrecoProdutoPromo;
-    ImageView imageViewProdutoPromo;
     ProdutoDAO tabelaProduto;
     Produto produto;
 
@@ -60,21 +57,24 @@ public class ProdutoAdapter extends BaseAdapter implements View.OnClickListener 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         //retorna a linha construída. método principal. linha feita
-        View linhaProduto = LayoutInflater.from(context).inflate(R.layout.fragment_item_batata, viewGroup, false); //3 parametros no inflate(layout, pai/viewgroup, falso -> não adc tudo de uma vez, porque temos que popular)
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View linhaProduto = inflater.inflate(R.layout.fragment_item_batata, viewGroup, false);
 
+//        View linhaProduto = LayoutInflater.from(context).inflate(R.layout.fragment_item_batata, viewGroup, false); //3 parametros no inflate(layout, pai/viewgroup, falso -> não adc tudo de uma vez, porque temos que popular)
+
+        Produto produto;
         //inflar o layout xml, acessar os campos e colocar os valores,
         //Acesar imgView, e txt's
 
         //Inflando os tópicos do produto
-        textViewNomeProdutoPromo = view.findViewById(R.id.idTxtViewNomeProdutoPromo);
-        textViewPrecoProdutoPromo = view.findViewById(R.id.idTxtViewPrecoProdutoPromo);
+        ImageView imageViewProdutoPromo = view.findViewById(R.id.idImageViewItemBatata);
+        TextView textViewNomeProdutoPromo = view.findViewById(R.id.idTxtNomeProduto);
+        TextView textViewPrecoProdutoPromo = view.findViewById(R.id.idTxtPreco);
 
-        imageViewProdutoPromo = view.findViewById(R.id.idImagemProdutoPromo);
-
-        buttonRemoverQtdeItem = view.findViewById(R.id.idButtonRemoverQtdeItem);
-        buttonAdicionarQtdeItem = view.findViewById(R.id.idButtonAdicionarQtdeItem);
-        buttonEditarProduto = view.findViewById(R.id.idButtonEditarProduto);
-        buttonExcluirProduto = view.findViewById(R.id.idButtonExcluirProduto);
+        Button buttonRemoverQtdeItem = view.findViewById(R.id.idButtonRemoverQtdeItem);
+        Button buttonAdicionarQtdeItem = view.findViewById(R.id.idButtonAdicionarQtdeItem);
+        Button buttonEditarProduto = view.findViewById(R.id.idButtonEditarProduto);
+        Button buttonExcluirProduto = view.findViewById(R.id.idButtonExcluirProduto);
 
         //Pra setar os atributos do produto específico, de acordo com o seu id
         produto = dataset.get(i);
@@ -82,7 +82,7 @@ public class ProdutoAdapter extends BaseAdapter implements View.OnClickListener 
         //Setar os atributos
         textViewNomeProdutoPromo.setText(produto.getNome());
         textViewPrecoProdutoPromo.setText((String.valueOf(produto.getPreco())));
-        imageViewProdutoPromo.setImageBitmap(produto.getImagem());
+//        imageViewProdutoPromo.setImageBitmap(produto.getImagem());
 
         //O adapter da lista -> Pega os dados de uma forma para serem exibidos de outro.
         return linhaProduto;

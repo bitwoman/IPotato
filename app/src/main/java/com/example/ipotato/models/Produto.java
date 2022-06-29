@@ -15,13 +15,14 @@ public class Produto implements Serializable {
     public int quantidadeProduto = 0;
 
     //Construtor
-    public Produto(long id, String nome, String descricao, double preco, double desconto) {
+    public Produto(long id, String nome, String descricao, double preco, double desconto, int quantidadeProduto) {
         this.id = id;
 //        this.imagem = imagem;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.desconto = desconto;
+        this.quantidadeProduto = quantidadeProduto;
     }
 
     public long getId() {
@@ -84,10 +85,10 @@ public class Produto implements Serializable {
     public static ArrayList<Produto> getProdutos(){
         ArrayList<Produto> batatas = new ArrayList<Produto>();
 
-        batatas.add(new Produto(1, "Batata 1", "Batata 1", 9.90, 1.0));
-        batatas.add(new Produto(2, "Batata 2", "Batata 2",9.90, 1.0));
-        batatas.add(new Produto(3, "Batata 3", "Batata 3",9.90, 1.0));
-        batatas.add(new Produto(4, "Batata 4", "Batata 4",9.90, 1.0));
+        batatas.add(new Produto(1, "Batata 1", "Batata 1", 9.90, 1.0,1));
+        batatas.add(new Produto(2, "Batata 2", "Batata 2",9.90, 1.0,1));
+        batatas.add(new Produto(3, "Batata 3", "Batata 3",9.90, 1.0,1));
+        batatas.add(new Produto(4, "Batata 4", "Batata 4",9.90, 1.0,1));
 
         return batatas;
     }

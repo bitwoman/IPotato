@@ -17,9 +17,10 @@ import java.util.List;
 public class Pedidos extends Fragment implements Serializable {
 
     //Atributos
-    List<Produto> produtosNoPedido = new ArrayList<>();
+    public List<Produto> produtosNoPedido = new ArrayList<>();
+    public List<Pedido> atributosPedido = new ArrayList<>();
 
-   //Construtor
+    //Construtor
    public Pedidos(List<Produto> produtosNoPedido) {
        this.produtosNoPedido = produtosNoPedido;
    }
@@ -37,7 +38,7 @@ public class Pedidos extends Fragment implements Serializable {
 
     ///Métodos personalizados
     //Método responsável por retornar o valor total da compra feita pelo usuário
-    public double valorTotal(){
+    public double valorTotalPedido(){
         double total = 0;
 
         for (Produto produto: produtosNoPedido) {
@@ -47,12 +48,30 @@ public class Pedidos extends Fragment implements Serializable {
     }
 
     //Método responsável por retornar a quantidade total de itens pedidos
-    public int QuantidadeTotal(){
+    public int quantidadeTotalPedido(){
         int quantidade = 0;
 
         for (Produto produto: produtosNoPedido) {
             quantidade += produto.getQuantidadeProduto();
         }
         return quantidade;
+    }
+
+    public String retornaMetodoPgto(){
+       String metodoPgto = "";
+
+        for (Pedido pedido: atributosPedido) {
+            metodoPgto = pedido.getMetodoPag();
+        }
+        return metodoPgto;
+    }
+
+    public String retornaEndereco(){
+        String endereco = "";
+
+        for (Pedido pedido: atributosPedido) {
+            endereco = pedido.getEndereco();
+        }
+        return endereco;
     }
 }
