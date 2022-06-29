@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -66,8 +67,10 @@ public class Cardapio extends Fragment {
 
         listViewProdutos = view.findViewById(R.id.idListaContainerDeProdutos);
         listaDeProdutos = tabelaProduto.getAllProducts();
+        ArrayAdapter<Produto> adap = new ArrayAdapter<Produto>(getContext(), R.layout.fragment_gerenciar_cardapio);
 
-        ProdutoAdapter adaptador = new ProdutoAdapter(getContext(), listaDeProdutos); //ele vai puxar os produtos por conta do método estático.
-        listViewProdutos.setAdapter(adaptador);
+        listViewProdutos.setAdapter(adap);
+//        ProdutoAdapter adaptador = new ProdutoAdapter(getContext(), listaDeProdutos); //ele vai puxar os produtos por conta do método estático.
+//        listViewProdutos.setAdapter(adaptador);
     }
 }

@@ -9,6 +9,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.example.ipotato.R;
 import com.example.ipotato.models.Pedido;
 import com.example.ipotato.models.Produto;
 
@@ -143,6 +144,7 @@ public class PedidoDAO extends SQLiteOpenHelper {
     public void popularBD(){
         Produto pr = new Produto(
                 0,
+                R.drawable.batata_assada,
                 "Ana",
                 "Vendendo a Anaju",
                 100,

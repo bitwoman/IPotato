@@ -5,10 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.example.ipotato.R;
 import com.example.ipotato.models.Produto;
 
 import java.util.ArrayList;
@@ -118,7 +121,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
                 double preco = cursor.getDouble(cursor.getColumnIndexOrThrow("preco"));
                 double desconto = cursor.getDouble(cursor.getColumnIndexOrThrow("desconto"));
 
-                Produto p = new Produto(id, nome, descricao, preco, desconto);
+                Produto p = new Produto(id, R.drawable.batata_assada, nome, descricao, preco, desconto);
                 listP.add(p);
 
 //                Log.i("Registro: ", id + "" + nome + "" + preco);
@@ -134,6 +137,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
     public void popularBD(){
         Produto pr = new Produto(
                 0,
+                R.drawable.batata_assada,
                 "Ana",
                 "Vendendo a Anaju",
                 100,
@@ -145,17 +149,17 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 
     public List<Produto> produtosMockados() {
         List<Produto> listProduto = new ArrayList<Produto>();
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
-        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, R.drawable.batata_assada,"sashimi", "Lorem ipsum", 10.50, 0));
         return listProduto;
     }
 }
