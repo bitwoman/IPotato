@@ -46,6 +46,7 @@ public class CadastroUsuario extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((DrawerLocker) requireActivity()).liberarMenu(true);
         return inflater.inflate(R.layout.fragment_cadastro_usuario, container, false);
     }
 
