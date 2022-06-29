@@ -2,9 +2,10 @@ package com.example.ipotato.models;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Produto {
+public class Produto implements Serializable {
 
     //Atributos
     private long id;
