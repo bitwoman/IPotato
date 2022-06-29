@@ -6,6 +6,7 @@
     tools:context=".classes.GerenciarCardapio">
 
     <LinearLayout
+        android:id="@+id/cardapioAdapter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -15,10 +16,10 @@
             android:id="@+id/idImageViewProduto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
+            android:layout_weight="3"
             android:contentDescription="@string/content_description_imageview_produto"
             tools:ignore="ImageContrastCheck"
             tools:src="@tools:sample/avatars" />
@@ -29,10 +30,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="3"
             android:layout_marginEnd="2dp"
+            android:layout_weight="3"
             android:text="@string/txt_nome_produto"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
         <ImageView
@@ -45,7 +46,7 @@
             android:background="@drawable/ic_edit"
             android:padding="1dp"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/idButtonExcluirProduto"
@@ -57,7 +58,7 @@
             android:background="@drawable/iconexcluir"
             android:padding="1dp"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 

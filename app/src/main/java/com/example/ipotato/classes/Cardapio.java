@@ -22,9 +22,15 @@ import android.widget.Toast;
 
 import com.example.ipotato.R;
 import com.example.ipotato.adapters.ProdutoAdapter;
+import com.example.ipotato.dao.ProdutoDAO;
 import com.example.ipotato.models.Produto;
 
+import java.util.ArrayList;
+
 public class Cardapio extends Fragment {
+
+    private ProdutoAdapter adap;
+    private RecyclerView rcView;
 
     //Atributos
     private RecyclerView listaProdutosEmPromo;
@@ -43,12 +49,25 @@ public class Cardapio extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cardapio, container, false);
+        View view = inflater.inflate(R.layout.fragment_gerenciar_cardapio, container, false);
+
+        // Add the following lines to create RecyclerView
+        adap = new ProdutoAdapter(getContext(), (ArrayList<Produto>) (new ProdutoDAO(getContext()).produtosMockados()));
+
+        rcView = (RecyclerView) view.findViewById(R.id.idRecyclerProdutos);
+//        rcView.setHasFixedSize(true);
+        rcView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        rcView.setAdapter(adap);
+
+        return view;
+//        return inflater.inflate(R.layout.fragment_cardapio, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Toast.makeText(getContext(), "Estou no cardápio", Toast.LENGTH_SHORT).show();
         super.onViewCreated(view, savedInstanceState);
+
+
     }
 }

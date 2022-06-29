@@ -141,4 +141,21 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         );
         this.inserir(pr);
     }
+
+
+    public List<Produto> produtosMockados() {
+        List<Produto> listProduto = new ArrayList<Produto>();
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        listProduto.add(new Produto(0, "sashimi", "Lorem ipsum", 10.50, 0));
+        return listProduto;
+    }
 }

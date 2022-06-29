@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, HistoricoDePedidos.class, null).commit();
                 break;
             case R.id.idButtonGerenciarGardapio:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, GerenciarCardapio.class, null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, Cardapio.class, null).commit();
                 break;
             case R.id.idButtonSair:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, Login.class, null).commit();
