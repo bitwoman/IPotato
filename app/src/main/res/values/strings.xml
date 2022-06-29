@@ -39,7 +39,7 @@
     <string name="imageview_contentdescription_iconepromocao">Image View do Icone de Promoção</string>
     <string name="button_iniciar_pegido_page_iniciar_pedido">Iniciar Pedido</string>
 
-    <!-- String's da página de Cardápio -->
+    <!-- String's da página de Cardápio (fragmento item_batata) -->
     <string name="button_adicionar_qtde_item">+</string>
     <string name="content_description_imageview_produto">Icone do produto</string>
     <string name="txt_nome_produto">Nome do produto</string>
@@ -48,8 +48,13 @@
     <string name="txt_button_adicionar_qtde_item">+</string>
 
     <!-- Strings da página de cadstro de produto -->
-    <string name="txt_nome_do_produto">Nome do Produto</string>
-    <string name="txt_descricao_do_produto">Descrição do Produto</string>
+    <string name="hint_edittext_nome_produto_cadastro">Nome do Produto</string>
+    <string name="hint_edittext_descricao_produto_cadastro">Descrição do Produto</string>
+    <string name="hint_edittext_preco_produto_cadastro">Preço</string>
+    <string name="hint_edittext_desconto_produto_cadastro">% Desconto</string>
+    <string name="cd_imageview_button_inserir_foto">Botão para inserir imagem do produto</string>
+    <string name="txtview_label_button_inserir_foto">Imagem do Produto\n(Clique para Escolher)</string>
+    <string name="button_cadastrar_produto">Cadastrar</string>
 
     <!-- Strings da página de carrinho -->
     <string name="txt_total">Total: R$</string>
@@ -60,7 +65,25 @@
     <string name="txtBox_enderecoDeEntrega">Endereço de Entrega</string>
     <string name="txt_enderecoDeEntrega">Endereço de Entrega</string>
     <string name="button_fecharPedido">Fechar Pedido</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!--String's da caixa de diálogo para excluir produto-->
+    <string name="title_alert_dialog">EXCLUIR</string>
+    <string name="alert_dialog_warning">Deseja realmente remover o contato? </string>
+    <string name="alert_dialog_confirmar">DELETAR</string>
+    <string name="alert_dialog_cancelar">CANCELAR</string>
+
+    <!-- String's do layout de iten's em promoção -->
+    <string name="txtview_nome_produto_promo">Nome Produto</string>
+    <string name="txtview_preco_produto_promo">R$</string>
+    <string name="cd_imagem_produto_promo">Imagem do produto em promoção</string>
+    <string name="button_adc_produto_carrinho_promo">+</string>
+
+    <!-- String's do layout de gerenciar cardapio -->
+    <string name="cd_imageview_produto_gerenciar_produto">Imagem do produto que está editado</string>
+    <string name="cd_imageview_button_editar_produto">Imagem do botão para editar o cadastro do produto</string>
+    <string name="cd_imageview_button_excluir_produto">Imagem do botão para excluir o produto</string>
+
+    <!-- String padrão quando um fragmento é criado -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

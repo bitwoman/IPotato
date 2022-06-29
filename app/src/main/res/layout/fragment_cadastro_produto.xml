@@ -19,7 +19,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_text_layout"
             android:ems="10"
-            android:hint="@string/txt_nome_do_produto"
+            android:hint="@string/hint_edittext_nome_produto_cadastro"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="10dip"
@@ -37,7 +37,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_text_layout"
             android:ems="10"
-            android:hint="@string/txt_descricao_do_produto"
+            android:hint="@string/hint_edittext_descricao_produto_cadastro"
             android:inputType="textPersonName"
             android:padding="10dip"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,6 @@
             app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeProdutoCadastro"
             tools:ignore="TextContrastCheck"
             android:importantForAutofill="no" />
-            app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeProdutoCadastro" />
 
         <EditText
             android:id="@+id/idEditTextPrecoProdutoCadastro"
@@ -55,11 +54,13 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_text_layout"
             android:ems="10"
-            android:hint="Preço"
+            android:hint="@string/hint_edittext_preco_produto_cadastro"
             android:inputType="textPersonName"
             android:padding="10dip"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idEditTextDescricaoProdutoCadastro" />
+            app:layout_constraintTop_toBottomOf="@+id/idEditTextDescricaoProdutoCadastro"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/idEditTextDescontoProdutoCadastro"
@@ -68,11 +69,12 @@
             android:layout_marginStart="10dp"
             android:background="@drawable/edit_text_layout"
             android:ems="10"
-            android:hint="% Desconto"
+            android:hint="@string/hint_edittext_desconto_produto_cadastro"
             android:inputType="textPersonName"
             android:padding="10dip"
             app:layout_constraintStart_toEndOf="@+id/idEditTextPrecoProdutoCadastro"
-            app:layout_constraintTop_toTopOf="@+id/idEditTextPrecoProdutoCadastro" />
+            app:layout_constraintTop_toTopOf="@+id/idEditTextPrecoProdutoCadastro"
+            tools:ignore="TextContrastCheck" />
 
         <ImageView
             android:id="@+id/idButtonCadastrarImagemProdutoCadastro"
@@ -83,6 +85,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idEditTextPrecoProdutoCadastro"
             app:srcCompat="@drawable/adicionarimagem"
+            tools:ignore="ImageContrastCheck"
+            android:contentDescription="@string/cd_imageview_button_inserir_foto"
             tools:src="@tools:sample/avatars" />
 
         <TextView
@@ -90,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Imagem do Produto\n(Clique para Escolher)"
+            android:text="@string/txtview_label_button_inserir_foto"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -106,7 +110,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/vermelho_botão_cadastrar_produto"
-            android:text="Cadastrar"
+            android:text="@string/button_cadastrar_produto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
