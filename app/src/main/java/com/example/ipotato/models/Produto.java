@@ -12,6 +12,7 @@ public class Produto implements Serializable {
     private Bitmap imagem;
     private String nome, descricao;
     private double preco, desconto;
+    public int quantidadeProduto = 0;
 
     //Construtor
     public Produto(long id, String nome, String descricao, double preco, double desconto) {
@@ -69,6 +70,14 @@ public class Produto implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public int getQuantidadeProduto() {
+        return quantidadeProduto;
+    }
+
+    public void setQuantidadeProduto(int quantidadeProduto) {
+        this.quantidadeProduto = quantidadeProduto;
     }
 
     //Método personalizado

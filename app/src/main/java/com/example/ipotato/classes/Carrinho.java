@@ -1,5 +1,6 @@
 package com.example.ipotato.classes;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,16 +13,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ipotato.R;
+import com.example.ipotato.adapters.PedidoAdapter;
 import com.example.ipotato.dao.PedidoDAO;
 import com.example.ipotato.models.Pedido;
 import com.example.ipotato.models.Produto;
 
+import java.util.List;
 import java.util.Locale;
 
 public class Carrinho extends Fragment implements View.OnClickListener{
@@ -32,6 +36,7 @@ public class Carrinho extends Fragment implements View.OnClickListener{
     EditText editTextEnderecoEntrega;
     TextView textViewTotalPedido;
     Button buttonFecharPedido;
+    List<Produto> listaDeBatatas;
 
     //Instâncias
     Pedido pedidoParaCadastrar;
@@ -58,6 +63,14 @@ public class Carrinho extends Fragment implements View.OnClickListener{
         super.onViewCreated(view, savedInstanceState);
 
         tabelaPedido = new PedidoDAO(getContext());
+
+        Intent it = new Intent(getContext(), Carrinho.class);
+        listaDeBatatas = (List<Produto>) it.getSerializableExtra("PedidosProdutos");
+
+        final PedidoAdapter adaptador = new PedidoAdapter(getContext(), listaDeBatatas);
+        final ListView listaDePedidos = (ListView) view.findViewById(R.id.idListViewContainerItensPageCarrinho); //idListViewPedidoFinal
+        listaDePedidos.setAdapter(adaptador);
+
 
         radioGroupFormaPagamento = view.findViewById(R.id.idRadioGroupFormaPagamento);
         buttonFormaPgtoDinheiro = view.findViewById(R.id.idButtonFormaPgtoDinheiro);
