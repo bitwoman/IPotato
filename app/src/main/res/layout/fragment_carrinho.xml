@@ -75,19 +75,19 @@
             app:layout_constraintTop_toBottomOf="@+id/idTxtLabelFormaPagamento">
 
             <RadioButton
-                android:id="@+id/idsButtonFormaPgtoDinheiro"
+                android:id="@+id/idButtonFormaPgtoDinheiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_radioButton_dinheiro" />
 
             <RadioButton
-                android:id="@+id/idsButtonFormaPgtoCredito"
+                android:id="@+id/idButtonFormaPgtoCredito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_radioButton_cartaoCredito" />
 
             <RadioButton
-                android:id="@+id/idsButtonFormaPgtoDebito"
+                android:id="@+id/idButtonFormaPgtoDebito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_radioButton_cartaoDebito" />
