@@ -52,18 +52,10 @@ public class Cardapio extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_gerenciar_cardapio, container, false);
-
-        // Add the following lines to create RecyclerView
-        adap = new ProdutoAdapter(getContext(), (ArrayList<Produto>) (new ProdutoDAO(getContext()).produtosMockados()));
-
-        rcView = (RecyclerView) view.findViewById(R.id.idRecyclerProdutos);
-//        rcView.setHasFixedSize(true);
-        rcView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        rcView.setAdapter(adap);
-
-        return view;
-//        return inflater.inflate(R.layout.fragment_cardapio, container, false);
+//        View view = inflater.inflate(R.layout.fragment_gerenciar_cardapio, container, false);
+//
+//        return view;
+        return inflater.inflate(R.layout.fragment_cardapio, container, false);
     }
 
     @Override
