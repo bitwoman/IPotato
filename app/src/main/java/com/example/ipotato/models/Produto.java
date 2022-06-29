@@ -20,7 +20,6 @@ public class Produto {
         this.descricao = descricao;
         this.preco = preco;
         this.desconto = desconto;
-
     }
 
     public long getId() {
