@@ -18,7 +18,7 @@ import java.util.List;
 public class PedidoDAO extends SQLiteOpenHelper {
 
     //Nome do banco e versão
-    public final static String NOME_BANCO = "bd1";
+    public final static String NOME_BANCO = "ipotato";
     public final static int VERSAO_BANCO = 1;
 
     //Contrutor
@@ -144,6 +144,7 @@ public class PedidoDAO extends SQLiteOpenHelper {
         Produto pr = new Produto(
                 0,
                 "Ana",
+                "Vendendo a Anaju",
                 100,
                 10
         );

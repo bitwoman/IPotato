@@ -56,7 +56,7 @@ public class IniciarPedido extends Fragment implements View.OnClickListener {
 
         //Instância do Navigation Controller, é responsável pelo gerenciamento das tramitações entre os fragmentos
         navController = Navigation.findNavController(view);
-//
+
         buttonIniciarPedido = view.findViewById(R.id.idButtonIniciarPedido);
         buttonIniciarPedido.setOnClickListener(this);
     }
@@ -64,12 +64,10 @@ public class IniciarPedido extends Fragment implements View.OnClickListener {
     //Evento de clique "padrão" da página de Iniciar Pedido
     @Override
     public void onClick(View view) {
-//        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
         getParentFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragmentContainerView, Cardapio.class, null)
                 .commit();
-//        navController.navigate(R.id.action_iniciarPedido3_to_cardapio);
     }
 
 //    Recriei o método de finish, pois o mesmo não é aceito no switch dentro do onNavigationItemSelected

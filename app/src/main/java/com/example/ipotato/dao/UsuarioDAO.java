@@ -17,7 +17,7 @@ import java.util.List;
 public class UsuarioDAO extends SQLiteOpenHelper {
 
     //Nome do banco e versão
-    public final static String NOME_BANCO = "db1";
+    public final static String NOME_BANCO = "ipotato";
     public final static int VERSAO_BANCO = 1;
 
     //Construtor
