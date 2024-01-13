@@ -66,7 +66,7 @@ public class IniciarPedido extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         getParentFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragmentContainerView, Cardapio.class, null)
+                .replace(R.id.idFragmentContainerView, Cardapio.class, null)
                 .commit();
     }
 

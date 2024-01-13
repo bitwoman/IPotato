@@ -1,5 +1,6 @@
 package com.example.ipotato.classes;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -57,11 +58,13 @@ public class Cardapio extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         tabelaProduto = new ProdutoDAO(getContext());
-
-        listViewProdutos = view.findViewById(R.id.idListaContainerDeProdutos);
         listaDeProdutos = tabelaProduto.getAllProducts();
 
-        ProdutoAdapter adaptador = new ProdutoAdapter(getContext(), listaDeProdutos); //ele vai puxar os produtos por conta do método estático.
+//        Intent it = new Intent(view.getContext(), Cardapio.class);
+//        List<Produto> listaDeProdutos = (List<Produto>) it.getSerializableExtra("PedidosProdutos");
+        final ProdutoAdapter adaptador = new ProdutoAdapter(getContext(), listaDeProdutos); //ele vai puxar os produtos por conta do método estático.
+
+        listViewProdutos = view.findViewById(R.id.idListaContainerDeProdutos);
         listViewProdutos.setAdapter(adaptador);
     }
 }

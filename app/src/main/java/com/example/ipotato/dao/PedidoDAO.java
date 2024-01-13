@@ -19,12 +19,26 @@ public class PedidoDAO extends SQLiteOpenHelper {
 
     //Nome do banco e versão
     public final static String NOME_BANCO = "ipotato";
-    public final static int VERSAO_BANCO = 1;
+    public final static int VERSAO_BANCO = 5;
 
     //Contrutor
     public PedidoDAO(@Nullable Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
+        validarTabela();
     }
+
+
+    public void validarTabela(){
+        //Criando variável do tipo SQLiteDatabase e chamando o método getWritableDatabase(), funciona para alterações e não somente leitura
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS pedido(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "quantidade REAL, " +
+                "metodoPag TEXT," +
+                "endereco TEXT, " +
+                "FOREIGN KEY (produto_fk) REFERENCES produto(_id))");
+    }
+
 
     //On create para executar o SQL que vai criar as tabelas do banco e as colunas.
     @Override
@@ -146,7 +160,8 @@ public class PedidoDAO extends SQLiteOpenHelper {
                 "Ana",
                 "Vendendo a Anaju",
                 100,
-                10
+                10,
+                1
         );
         Pedido p = new Pedido(
                 0,
